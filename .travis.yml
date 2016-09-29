@@ -8,7 +8,7 @@ install:
   - pip install --upgrade setuptools
   - pip install rdflib rdflib-jsonld
   # for testing:
-  - pip install misaka
+  - pip install coveralls pep8 pep257 restructuredtext_lint misaka
 script:
   - py.test
   - pep8 --ignore=E501 *.py */*.py
