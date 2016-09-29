@@ -1,3 +1,4 @@
-from rdflib import Graph, plugin
+from rdflib import Graph
 g = Graph().parse('spec_info.json', format='json-ld')
-print(g.serialize(format='nt', indent=4))
+print(g.serialize(format='nt', indent=4).decode('utf-8'))
+
