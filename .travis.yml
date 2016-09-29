@@ -11,6 +11,6 @@ install:
   - pip install coveralls pep8 pep257 restructuredtext_lint misaka
 script:
   - py.test
-  - pep8 --ignore=E501 *.py */*.py
-  - pep257 *.py */*.py
+  - pep8 --ignore=E501 */*.py
+  - pep257 */*.py
   - rst-lint README.md
