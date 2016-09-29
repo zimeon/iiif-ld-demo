@@ -1,3 +1,4 @@
+"""Parse simple info.json example."""
 from rdflib import Graph
 info_json = """
 {
@@ -14,4 +15,3 @@ info_json = """
 """
 g = Graph().parse(data=info_json, format='json-ld')
 print(g.serialize(format='nt', indent=4).decode('utf-8'))
-

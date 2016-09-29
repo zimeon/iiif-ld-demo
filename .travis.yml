@@ -13,4 +13,4 @@ script:
   - py.test
   - pep8 --ignore=E501 *.py */*.py
   - pep257 *.py */*.py
-  - rst-lint README
+  - rst-lint README.md

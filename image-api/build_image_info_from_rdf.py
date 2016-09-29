@@ -28,6 +28,5 @@ context = "http://iiif.io/api/image/2/context.json"
 g.add((id, dcterms.conformsTo, URIRef("http://iiif.io/api/image")))
 g.add((id, exif.width, Literal(4000, datatype=XSD.integer)))
 g.add((id, exif.height, Literal(3000, datatype=XSD.integer)))
-g.add((id, doap.implements, URIRef("http://iiif.io/api/image/2/level0.json"))) # CANNOT SPECIFY AS LIST
+g.add((id, doap.implements, URIRef("http://iiif.io/api/image/2/level0.json")))  # CANNOT SPECIFY AS LIST
 print(g.serialize(format='json-ld', context=context, indent=4).decode('utf-8'))
-
