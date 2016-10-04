@@ -1,7 +1,7 @@
 # iiif-ld-demo
 
-  * Recap - What is IIIF? 
+  * [IIIF Introduction](iiif_intro.md) 
   * Recap - Status of IIIF specifications
-  * IIIF and Linked Data - Design Principles
+  * [IIIF and Linked Data - Design Principles](iiid_and_ld.md)
   * [IIIF Image API](image-api)
   
