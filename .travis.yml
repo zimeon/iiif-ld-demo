@@ -6,6 +6,8 @@ python:
   - "3.5"
 install:
   - pip install --upgrade setuptools
+  # py.test version 2.7.3 required for Python 3.5
+  - pip install --upgrade pytest
   - pip install rdflib rdflib-jsonld
   # for testing:
   - pip install coveralls pep8 pep257 restructuredtext_lint misaka
