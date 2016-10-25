@@ -1,0 +1,6 @@
+digraph CYCLE {
+  nodesep=0.5
+  "http://example.org/r1" -> "http://example.org/r2" [ style=filled label="http://example.org/p1" ]
+  "http://example.org/r2" -> "http://example.org/r3" [ style=filled label="http://example.org/p2" ]
+  "http://example.org/r3" -> "http://example.org/r1" [ style=filled label="http://example.org/p3" ]
+}
