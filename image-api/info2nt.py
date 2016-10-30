@@ -4,4 +4,4 @@ os.chdir(sys.path[0])
 
 from rdflib import Graph
 g = Graph().parse('spec_info.json', format='json-ld')
-print(g.serialize(format='nt', indent=4).decode('utf-8'))
+print(g.serialize(format='nt', indent=2).decode('utf-8'))

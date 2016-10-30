@@ -1,10 +1,10 @@
-q# Read Image API `info.json`
+# Read Image API `info.json`
 
-The [IIIF Image API](http://iiif.io/api/image/2.1/) specifies as JSON-LD document format for Image Information, called `info.json`. The document provides information required for a client to understand what image services are available for the given image. This is resource-based and not service-based: there is a separate `info.json` for every image.
+The [IIIF Image API](http://iiif.io/api/image/2.1/) specifies as JSON-LD document format for Image Information, called `info.json`. The document provides information required for a client to understand what image services are available for the given image. In addition to this technical metadata there may also be rights and licensing information. This is service/resource-based and not server-based: there is a separate `info.json` for every image.
 
 The `info.json` document _MUST_ include a `@context` `<http://iiif.io/api/image/2/context.json>` and this specifies how to translate the simple JSON into RDF.
 
-``` shell
+``` sh
 image-api> python info2nt.py
 ```
 

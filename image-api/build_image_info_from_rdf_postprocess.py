@@ -135,4 +135,4 @@ g.add((tile1, iiif.scaleFactor, Literal(2, datatype=XSD.integer)))
 g.add((tile1, iiif.scaleFactor, Literal(4, datatype=XSD.integer)))
 
 
-print(serialize_as_jsonld(g, sys.stdout, format='json-ld', context=context, json_hook=iiifize_image_api_jsonld, indent=4))
+print(serialize_as_jsonld(g, sys.stdout, format='json-ld', context=context, json_hook=iiifize_image_api_jsonld, indent=2))

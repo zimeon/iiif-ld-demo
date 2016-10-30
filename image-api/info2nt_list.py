@@ -14,4 +14,4 @@ info_json = """
 }
 """
 g = Graph().parse(data=info_json, format='json-ld')
-print(g.serialize(format='nt', indent=4).decode('utf-8'))
+print(g.serialize(format='nt', indent=2).decode('utf-8'))
