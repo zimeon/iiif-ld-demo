@@ -15,7 +15,7 @@ import re
 try:
     from subprocess import getoutput  # py3
 except:
-    from command import getoutput  # py2
+    from commands import getoutput  # py2
 import sys
 
 class CodeExtracter(misaka.HtmlRenderer):
