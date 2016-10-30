@@ -4,14 +4,13 @@ The [IIIF Image API](http://iiif.io/api/image/2.1/) specifies as JSON-LD documen
 
 The `info.json` document _MUST_ include a `@context` `<http://iiif.io/api/image/2/context.json>` and this specifies how to translate the simple JSON into RDF.
 
-``` sh
+``` shell
 image-api> python info2nt.py
 ```
 
-``` json
-Loading context  http://iiif.io/api/image/2/context.json
-Loading context  http://iiif.io/api/annex/services/physdim/1/context.json
-Loading context  http://geojson.org/contexts/geojson-base.jsonld
+produces output (perhaps with different BNode identifiers):
+
+``` nt
 <http://www.example.org/image-service/abcd1234/1E34750D-38DB-4825-A38A-B60A345E591C> <http://purl.org/dc/terms/rights> <http://example.org/rights/license1.html> .
 <http://www.example.org/image-service/abcd1234/1E34750D-38DB-4825-A38A-B60A345E591C> <http://purl.org/dc/terms/rights> <https://creativecommons.org/licenses/by/4.0/> .
 <http://www.example.org/image-service/abcd1234/1E34750D-38DB-4825-A38A-B60A345E591C> <http://iiif.io/api/image/2#hasSize> _:N66f4c16ca18841559e4535ca16c6ac05 .
@@ -56,4 +55,40 @@ _:N54ebc41ae2964741baea46c758768f87 <http://www.w3.org/2003/12/exif/ns#width> "1
 _:N997690c222914bda9fb54ac97c981cdb <http://www.w3.org/2003/12/exif/ns#width> "512"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://www.example.org/image-service/abcd1234/1E34750D-38DB-4825-A38A-B60A345E591C> <http://xmlns.com/foaf/0.1/logo> <http://example.org/image-service/logo/full/200,/0/default.png> .
 _:N07e2b1b80c344da68103400a28b548b0 <http://iiif.io/api/image/2#supports> <http://iiif.io/api/image/2#canonicalLinkHeaderFeature> .
+```
+
+That is a bit complex so let's look at a much simpler example:
+
+
+``` shell
+image-api> python info2nt_multi.py
+```
+
+which illustrates the conversion of the multiple `profile` entries into multiple triples with predicate `<http://usefulinc.com/ns/doap#implements>`:
+
+``` nt
+<http://example.org/svc/id1> <http://usefulinc.com/ns/doap#implements> <http://example.org/profile2> .
+<http://example.org/svc/id1> <http://usefulinc.com/ns/doap#implements> <http://iiif.io/api/image/2/level2.json> .
+<http://example.org/svc/id1> <http://purl.org/dc/terms/conformsTo> <http://iiif.io/api/image> .
+<http://example.org/svc/id1> <http://www.w3.org/2003/12/exif/ns#width> "6000"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/svc/id1> <http://www.w3.org/2003/12/exif/ns#height> "4000"^^<http://www.w3.org/2001/XMLSchema#integer> .
+```
+
+Making this a little more complex, we can introduce the `sizes` construct
+
+``` shell
+image-api> python info2nt_multi2.py 
+```
+
+which produces:
+
+``` nt
+<http://example.org/svc/id1> <http://iiif.io/api/image/2#hasSize> _:Ndd29e1e8d2a24954a7c2dea7f9332c36 .
+<http://example.org/svc/id1> <http://usefulinc.com/ns/doap#implements> <http://example.org/profile2> .
+<http://example.org/svc/id1> <http://purl.org/dc/terms/conformsTo> <http://iiif.io/api/image> .
+<http://example.org/svc/id1> <http://usefulinc.com/ns/doap#implements> <http://iiif.io/api/image/2/level2.json> .
+_:Ndd29e1e8d2a24954a7c2dea7f9332c36 <http://www.w3.org/2003/12/exif/ns#height> "100"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:Ndd29e1e8d2a24954a7c2dea7f9332c36 <http://www.w3.org/2003/12/exif/ns#width> "150"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/svc/id1> <http://www.w3.org/2003/12/exif/ns#height> "4000"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/svc/id1> <http://www.w3.org/2003/12/exif/ns#width> "6000"^^<http://www.w3.org/2001/XMLSchema#integer> .
 ```

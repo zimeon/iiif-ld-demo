@@ -9,6 +9,8 @@ import glob
 import json
 import json_delta
 import misaka
+import rdflib
+import rdflib.compare
 import re
 import subprocess
 
@@ -52,6 +54,9 @@ def check_markdown_file(filename):
                 raise Exception("Consecutive command blocks, (%s) and (%s)" % (command, text.strip()))
             command_line = text.strip()
             print("Got command to match: ", command_line)
+        elif (lang == 'sh' or lang == 'bash'):
+            # A command we should not try to use
+            command_line = None
         elif (command_line is not None):
             n += 1
             # Expect match from command in previous shell block
@@ -65,6 +70,15 @@ def check_markdown_file(filename):
                 diff = json_delta.diff(json1, json2, minimal=True ,verbose=False)
                 if (len(diff)>0):
                     raise Exception("JSON output doesn't match:\n errors in %s\n changes to match %s" % (diff[0], diff[1]))
+            elif (lang == 'nt'):
+                g1 = rdflib.Graph()
+                g1.parse(data=text, format="nt") 
+                g2 = rdflib.Graph()
+                g2.parse(data=out, format="nt") 
+                iso1 = rdflib.compare.to_isomorphic(g1)
+                iso2 = rdflib.compare.to_isomorphic(g2)
+                if (iso1 != iso2):
+                    raise Exception("nt data doesn't match")
             else:
                 print("output: ", out)
                 print("expected match: ", text)
