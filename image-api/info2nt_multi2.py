@@ -1,4 +1,4 @@
-"""Parse simple info.json example."""
+"""Parse info.json example with profile and sizes."""
 from rdflib import Graph
 info_json = """
 {
@@ -10,8 +10,9 @@ info_json = """
   "profile" : [
     "http://iiif.io/api/image/2/level2.json",
     "http://example.org/profile2"
-  ]
+  ],
+  "sizes" : [ { "width": "150", "height": "100" } ]
 }
 """
 g = Graph().parse(data=info_json, format='json-ld')
-print(g.serialize(format='nt', indent=2).decode('utf-8'))
+print(g.serialize(format='nt').decode('utf-8'))
