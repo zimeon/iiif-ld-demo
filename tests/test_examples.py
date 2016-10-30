@@ -13,7 +13,7 @@ import rdflib
 import rdflib.compare
 import re
 import subprocess
-
+import sys
 
 class CodeExtracter(misaka.HtmlRenderer):
     """Rendered class for Mikasa that extracts code blocks."""
@@ -106,4 +106,4 @@ for filename in glob.glob("*/*.md"):
         bad_files += 1
         print("[%s] Tests failed: %s" % (filename, str(e)))
 print("%d/%d files passed (%d commands tested)" % (num_files - bad_files, num_files, commands))
-exit(1 if bad_files > 0 else 0)
+sys.exit(1 if bad_files > 0 else 0)
