@@ -110,4 +110,5 @@ for filename in glob.glob("*/*.md"):
         bad_files += 1
         print("[%s] Tests failed: %s" % (filename, str(e)))
 print("%d/%d files passed (%d commands tested)" % (num_files - bad_files, num_files, commands))
-sys.exit(1 if bad_files > 0 else 0)
+if bad_files > 0:
+    sys.exit(1)
