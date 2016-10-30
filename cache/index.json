@@ -4,5 +4,7 @@
   "http://iiif.io/api/presentation/2/context.json":
     "iiif_presentation_2_context.json",
   "http://iiif.io/api/image/2/info_frame.json":
-    "iiif_image_2_info_frame.json"
+    "iiif_image_2_info_frame.json",
+  "http://iiif.io/api/presentation/2/manifest_frame.json":
+    "iiif_presentation_2_manifest_frame.json"
 }
