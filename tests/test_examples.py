@@ -12,7 +12,10 @@ import misaka
 import rdflib
 import rdflib.compare
 import re
-import subprocess
+try:
+    from subprocess import getoutput  # py3
+except:
+    from command import getoutput  # py2
 import sys
 
 class CodeExtracter(misaka.HtmlRenderer):
@@ -66,7 +69,7 @@ def check_markdown_file(filename):
             (directory, command) = split_command_line(command_line)
             cmd = "cd %s && %s" % (directory, command)
             print("[%s %d] cmd: %s" % (filename, n, cmd))
-            out = subprocess.getoutput(cmd)
+            out = getoutput(cmd)
             if (lang == 'json'):
                 json1 = json.loads(text)
                 json2 = json.loads(out)
