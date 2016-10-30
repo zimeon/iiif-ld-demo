@@ -1,3 +1,4 @@
+"""Read and dump JSON-LD for a cycle."""
 from pyld import jsonld
 import json
 
@@ -14,6 +15,5 @@ doc = json.loads("""
 }""")
 
 frame = json.loads("""{"http://example.org/p1": {}}""")
-framed = jsonld.compact(jsonld.frame(doc, frame),{})
+framed = jsonld.compact(jsonld.frame(doc, frame), {})
 print(json.dumps(framed, indent=2))
-

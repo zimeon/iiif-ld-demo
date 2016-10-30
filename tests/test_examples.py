@@ -36,6 +36,7 @@ def extract_codeblocks(md_file):
     msk(md)
     return(ce.codeblocks)
 
+
 def split_command_line(command_line):
     """Split the directory and actual command from example start."""
     m = re.match(r'''([\w\-]+)\>\s+(\S.*)''', command_line)
@@ -43,7 +44,9 @@ def split_command_line(command_line):
         raise Exception("Bad command line: %s" % (command_line))
     return(m.group(1), m.group(2))
 
+
 def check_markdown_file(filename):
+    """Check markdown file for codeblock shell+output pairs."""
     codeblocks = extract_codeblocks(filename)
     command_line = None
     n = 0
@@ -67,14 +70,14 @@ def check_markdown_file(filename):
             if (lang == 'json'):
                 json1 = json.loads(text)
                 json2 = json.loads(out)
-                diff = json_delta.diff(json1, json2, minimal=True ,verbose=False)
-                if (len(diff)>0):
+                diff = json_delta.diff(json1, json2, minimal=True, verbose=False)
+                if (len(diff) > 0):
                     raise Exception("JSON output doesn't match:\n errors in %s\n changes to match %s" % (diff[0], diff[1]))
             elif (lang == 'nt'):
                 g1 = rdflib.Graph()
-                g1.parse(data=text, format="nt") 
+                g1.parse(data=text, format="nt")
                 g2 = rdflib.Graph()
-                g2.parse(data=out, format="nt") 
+                g2.parse(data=out, format="nt")
                 iso1 = rdflib.compare.to_isomorphic(g1)
                 iso2 = rdflib.compare.to_isomorphic(g2)
                 if (iso1 != iso2):
@@ -89,6 +92,7 @@ def check_markdown_file(filename):
         raise Exception("Trailing command (%s) with no expected output to check" % (command))
     return n
 
+
 # Loop over and test all markdown files
 num_files = 0
 bad_files = 0
@@ -101,5 +105,5 @@ for filename in glob.glob("*/*.md"):
     except Exception as e:
         bad_files += 1
         print("[%s] Tests failed: %s" % (filename, str(e)))
-print("%d/%d files passed (%d commands tested)" % (num_files-bad_files, num_files, commands))
+print("%d/%d files passed (%d commands tested)" % (num_files - bad_files, num_files, commands))
 exit(1 if bad_files > 0 else 0)

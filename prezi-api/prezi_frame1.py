@@ -1,10 +1,14 @@
-# Example code based on
-# http://iiif.io/api/annex/notes/jsonld/#sample-usage
+"""Example code to read and frame manifest.
+
+Based on
+http://iiif.io/api/annex/notes/jsonld/#sample-usage
+"""
 from pyld.jsonld import compact, frame
-import urllib, json
+import urllib
+import json
 try:
     from urllib.request import urlopen
-except ImportError: # py2
+except ImportError:  # py2
     from urllib import urlopen
 
 import pyld_local_cache

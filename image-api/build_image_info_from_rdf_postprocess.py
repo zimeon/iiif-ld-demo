@@ -12,41 +12,42 @@ import sys
 
 
 def serialize_as_jsonld(graph, stream, base=None, encoding=None, **kwargs):
-	"""Serialize RDF graph as JSONLD.
+    """Serialize RDF graph as JSONLD.
 
-	Code copied from:
-	https://github.com/RDFLib/rdflib-jsonld/blob/master/rdflib_jsonld/serializer.py
-	with addition of json_hook functionality.
-	"""
-        # TODO: docstring w. args and return value
-        encoding = encoding or 'utf-8'
-        if encoding not in ('utf-8', 'utf-16'):
-            warnings.warn("JSON should be encoded as unicode. " +
-                          "Given encoding was: %s" % encoding)
+    Code copied from:
+    https://github.com/RDFLib/rdflib-jsonld/blob/master/rdflib_jsonld/serializer.py
+    with addition of json_hook functionality.
+    """
+    # TODO: docstring w. args and return value
+    encoding = encoding or 'utf-8'
+    if encoding not in ('utf-8', 'utf-16'):
+        warnings.warn("JSON should be encoded as unicode. " +
+                      "Given encoding was: %s" % encoding)
 
-        context_data = kwargs.get('context')
-        use_native_types = kwargs.get('use_native_types', False),
-        use_rdf_type = kwargs.get('use_rdf_type', False)
-        auto_compact = kwargs.get('auto_compact', False)
+    context_data = kwargs.get('context')
+    use_native_types = kwargs.get('use_native_types', False),
+    use_rdf_type = kwargs.get('use_rdf_type', False)
+    auto_compact = kwargs.get('auto_compact', False)
 
-        indent = kwargs.get('indent', 2)
-        separators = kwargs.get('separators', (',', ': '))
-        sort_keys = kwargs.get('sort_keys', True)
-        ensure_ascii = kwargs.get('ensure_ascii', False)
+    indent = kwargs.get('indent', 2)
+    separators = kwargs.get('separators', (',', ': '))
+    sort_keys = kwargs.get('sort_keys', True)
+    ensure_ascii = kwargs.get('ensure_ascii', False)
 
-        obj = from_rdf(graph.store, context_data, base,
-                use_native_types, use_rdf_type,
-                auto_compact=auto_compact)
+    obj = from_rdf(graph.store, context_data, base,
+                   use_native_types, use_rdf_type,
+                   auto_compact=auto_compact)
 
-	# Check hook for JSON postprocessing
-        json_hook = kwargs.get('json_hook', None)
-        if (json_hook is not None):
-            obj = json_hook(obj)
+    # Check hook for JSON postprocessing
+    json_hook = kwargs.get('json_hook', None)
+    if (json_hook is not None):
+        obj = json_hook(obj)
 
-        data = json.dumps(obj, indent=indent, separators=separators,
-                          sort_keys=sort_keys, ensure_ascii=ensure_ascii)
-        return data
-        #stream.write(data.encode(encoding, 'replace'))
+    data = json.dumps(obj, indent=indent, separators=separators,
+                      sort_keys=sort_keys, ensure_ascii=ensure_ascii)
+    return data
+    # stream.write(data.encode(encoding, 'replace'))
+
 
 def iiifize_image_api_jsonld(obj):
     """Modify plain JSONLD to be IIIF compliant JSONLD."""
@@ -54,6 +55,7 @@ def iiifize_image_api_jsonld(obj):
     if ('profile' in obj):
         obj['profile'] = [obj['profile']]
     return(obj)
+
 
 # Namespaces used in IIIF Image API,
 # see: http://iiif.io/api/image/2/context.json
@@ -73,7 +75,7 @@ sc = Namespace("http://iiif.io/api/presentation/2#")
 # width, height and profile
 g = Graph()
 id = URIRef("http://example.org/prefix/id")
-#context = "http://iiif.io/api/image/2/context.json"
+# context = "http://iiif.io/api/image/2/context.json"
 context = "image-api/context.json"
 g.add((id, dcterms.conformsTo, URIRef("http://iiif.io/api/image")))
 g.add((id, exif.width, Literal(4000, datatype=XSD.integer)))
@@ -81,19 +83,19 @@ g.add((id, exif.height, Literal(3000, datatype=XSD.integer)))
 g.add((id, doap.implements, URIRef("http://iiif.io/api/image/2/level0.json")))  # CANNOT SPECIFY AS LIST
 g.add((id, sc.attributionLabel, Literal(
     "<span>Provided by Example Organization</span>",
-    lang = "en")))
+    lang="en")))
 g.add((id, sc.attributionLabel, Literal(
     "<span>Darparwyd gan Enghraifft Sefydliad</span>",
-    lang = "cy")))
+    lang="cy")))
 
 logo = URIRef("http://example.org/image-service/logo/full/200,/0/default.png")
 g.add((id, foaf.logo, logo))
-## If the logo service is added this will cause the serialization
-## to use @graph
-#logo_svc = URIRef("http://example.org/image-service/logo")
-#g.add((logo, svcs.has_service, logo_svc))
-#??g.add((logo_svc, "@context", URIRef("http://iiif.io/api/image/2/context.json")))
-#g.add((logo_svc, doap.implements, URIRef("http://iiif.io/api/image/2/level2.json")))
+# # If the logo service is added this will cause the serialization
+# # to use @graph
+# logo_svc = URIRef("http://example.org/image-service/logo")
+# g.add((logo, svcs.has_service, logo_svc))
+# ??g.add((logo_svc, "@context", URIRef("http://iiif.io/api/image/2/context.json")))
+# g.add((logo_svc, doap.implements, URIRef("http://iiif.io/api/image/2/level2.json")))
 
 
 #  "license" : [

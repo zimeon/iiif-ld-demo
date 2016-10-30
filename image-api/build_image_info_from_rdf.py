@@ -3,7 +3,9 @@
 I'm not sure why one would want to do this, but let us
 see what can be done...
 
-The output of this program is WRONG. Even though 
+The output of this program is WRONG -- the context does
+not correctly make the `profile` a list as required by
+<http://iiif.io/api/image/2.1/#technical-properties>.
 """
 from rdflib import Graph, URIRef, Literal, plugin
 from rdflib.namespace import Namespace, XSD
@@ -27,7 +29,7 @@ sc = Namespace("http://iiif.io/api/presentation/2#")
 # width, height and profile
 g = Graph()
 id = URIRef("http://example.org/prefix/id")
-#context = "http://iiif.io/api/image/2/context.json"
+# context = "http://iiif.io/api/image/2/context.json"
 context = "context.json"
 g.add((id, dcterms.conformsTo, URIRef("http://iiif.io/api/image")))
 g.add((id, exif.width, Literal(4000, datatype=XSD.integer)))

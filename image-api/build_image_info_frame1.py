@@ -38,8 +38,7 @@ g.add((id, doap.implements, URIRef("http://iiif.io/api/image/2/level0.json")))
 
 info = pyld_json_from_rdflib_graph(g)
 framed = jsonld.compact(
-             jsonld.frame(info, "http://iiif.io/api/image/2/info_frame.json"),
-             "http://iiif.io/api/image/2/context.json")
+    jsonld.frame(info, "http://iiif.io/api/image/2/info_frame.json"),
+    "http://iiif.io/api/image/2/context.json")
 framed = jsonld.compact(framed, "http://iiif.io/api/image/2/context.json")
 print(json.dumps(framed, indent=2, sort_keys=True))
-
