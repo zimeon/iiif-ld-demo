@@ -18,6 +18,7 @@ except:
     from commands import getoutput  # py2
 import sys
 
+
 class CodeExtracter(misaka.HtmlRenderer):
     """Rendered class for Mikasa that extracts code blocks."""
 
