@@ -1,0 +1,6 @@
+digraph BOOK {
+  nodesep=0.5
+  "http://example.org/i/book1" -> "http://example.org/i/page1" [ style=filled label="http://example.org/term/hasPage" ]
+  "http://example.org/i/book1" -> "http://example.org/i/page2" [ style=filled label="http://example.org/term/hasPage" ]
+  "http://example.org/i/book1" -> "http://example.org/i/page3" [ style=filled label="http://example.org/term/hasPage" ]
+}

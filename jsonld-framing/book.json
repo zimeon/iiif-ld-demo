@@ -1,0 +1,26 @@
+{ "@context": {
+    "ex": "http://example.org/i/",
+    "term": "http://example.org/term/",
+    "dc": "http://purl.org/dc/elements/1.1/"
+  },
+  "@id": "ex:book1",
+  "@type": "term:Book",
+  "dc:title": "A story",
+  "term:hasPage": [
+    {
+      "@id": "ex:page1",
+      "@type": "term:Page",
+      "dc:title": "First page"
+    },
+    {
+      "@id": "ex:page2",
+      "@type": "term:Page",
+      "dc:title": "Middle page"
+    },
+    {
+      "@id": "ex:page3",
+      "@type": "term:Page",
+      "dc:title": "Last page"
+    }
+  ]
+}

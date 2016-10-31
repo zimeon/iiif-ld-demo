@@ -10,7 +10,7 @@ JSON-LD framing is a **W3C Draft Community Group Report 04 October 2016**
 
 There is new activity on framing started in [August 2016](https://lists.w3.org/Archives/Public/public-linked-json/2016Sep/0010.html) with the intention of moving work into an RDF WG. [Current issues](https://github.com/json-ld/json-ld.org/issues?q=is%3Aissue+is%3Aopen+label%3Aframing) are stored as issues on github.
 
-## Framing example 1 - a cycle
+## Framing example 1 - a cycle with "duck" typing
 
 Let's consider a simple RDF graph with three resources connected in a cycle by diferent predicates:
 
@@ -136,9 +136,77 @@ produces:
 {}
 ```
 
-## Framing example 2 - 
+## Framing example 2 - book and pages with explicit typing
 
-  * use type pattern
+Consider a second example, a book with three pages:
+
+![Book](book.png)
+
+The example code `book_framed.py` take the frame as a command line argument and thus the command:
+
+``` shell
+jsonld-framing> python book_framed.py '{"@type": "http://example.org/term/Book"}'
+```
+
+selects the one resource of type `Book` as the root node:
+
+``` json
+{
+  "@id": "http://example.org/i/book1",
+  "@type": "http://example.org/term/Book",
+  "http://example.org/term/hasPage": [
+    {
+      "@id": "http://example.org/i/page1",
+      "@type": "http://example.org/term/Page",
+      "http://purl.org/dc/elements/1.1/title": "First page"
+    },
+    {
+      "@id": "http://example.org/i/page2",
+      "@type": "http://example.org/term/Page",
+      "http://purl.org/dc/elements/1.1/title": "Middle page"
+    },
+    {
+      "@id": "http://example.org/i/page3",
+      "@type": "http://example.org/term/Page",
+      "http://purl.org/dc/elements/1.1/title": "Last page"
+    }
+  ],
+  "http://purl.org/dc/elements/1.1/title": "A story"
+}
+```
+
+However, we might write the code to look instead for resources of type `Page`:
+
+``` shell
+jsonld-framing> python book_framed.py '{"@type": "http://example.org/term/Page"}'
+```
+
+produces:
+
+``` json
+{
+  "@graph": [
+    {
+      "@id": "http://example.org/i/page1",
+      "@type": "http://example.org/term/Page",
+      "http://purl.org/dc/elements/1.1/title": "First page"
+    },
+    {
+      "@id": "http://example.org/i/page2",
+      "@type": "http://example.org/term/Page",
+      "http://purl.org/dc/elements/1.1/title": "Middle page"
+    },
+    {
+      "@id": "http://example.org/i/page3",
+      "@type": "http://example.org/term/Page",
+      "http://purl.org/dc/elements/1.1/title": "Last page"
+    }
+  ]
+}
+```
+
+FIXME:
+
   * difference of 1 instance vs 2 with {} and \[]
 
 ## References

@@ -43,7 +43,7 @@ def extract_codeblocks(md_file):
 
 def split_command_line(command_line):
     """Split the directory and actual command from example start."""
-    m = re.match(r'''([\w\-]+)\>\s+(\S.*)''', command_line)
+    m = re.match(r'''([\w\-]+)\>\s+(\S.*)$''', command_line)
     if (not m):
         raise Exception("Bad command line: %s" % (command_line))
     return(m.group(1), m.group(2))
