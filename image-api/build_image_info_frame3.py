@@ -42,7 +42,7 @@ framed = jsonld.compact(framed, "http://iiif.io/api/image/2/context.json")
 if ('profile' in framed):
     # Fix-up `profile` to be a list
     if (isinstance(framed['profile'], str)):
-        framed['profile'] = [ framed['profile'] ]
+        framed['profile'] = [framed['profile']]
     # Fix-up `profile` list to have IIIF compliance URI first
     if (len(framed['profile']) > 1):
         profiles = []
@@ -52,5 +52,5 @@ if ('profile' in framed):
             else:
                 profiles.append(profile)
         framed['profile'] = profiles
-    
+
 print(json.dumps(framed, indent=2, sort_keys=True))
