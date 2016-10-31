@@ -54,7 +54,7 @@ image-api> diff build_image_info_frame2.py  build_image_info_frame3.py
 > if ('profile' in framed):
 >     # Fix-up `profile` to be a list
 >     if (isinstance(framed['profile'], str)):
->         framed['profile'] = [ framed['profile'] ]
+>         framed['profile'] = [framed['profile']]
 >     # Fix-up `profile` list to have IIIF compliance URI first
 >     if (len(framed['profile']) > 1):
 >         profiles = []
@@ -64,14 +64,18 @@ image-api> diff build_image_info_frame2.py  build_image_info_frame3.py
 >             else:
 >                 profiles.append(profile)
 >         framed['profile'] = profiles
->     
+> 
 ```
-   
+
+With this change, the following command
+
 ``` shell
 image-api> python build_image_info_frame3.py 
 ```
 
-```
+will always produce the correct `profile` form, a list with the compliance level URI as the first entry:
+
+``` json
 {
   "@context": "http://iiif.io/api/image/2/context.json",
   "@id": "http://example.org/prefix/id",
