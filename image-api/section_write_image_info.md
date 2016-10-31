@@ -6,3 +6,81 @@ The `@context` doesn't support seamless creation of IIIF Image API `info.json` f
 
   * Image API `profile` is a list where order is significant but this is not expressed in the `@context` (see <https://github.com/IIIF/iiif.io/blob/master/source/api/image/2/context.json#L121-L124>). If one `profile` value is given, it will appear in straight conversion as a value and note a single entry list. If multipe `profile` values are given, they will appear as an unsorted list whereas the Image API specification requires that the compliance level profile be the first entry.
   * FIXME ...
+
+The first program:
+
+``` shell
+image-api> python build_image_info_frame1.py 
+```
+
+produces an **invalid** Image Information (`info.json`):
+
+
+``` json
+{
+  "@context": "http://iiif.io/api/image/2/context.json",
+  "@id": "http://example.org/prefix/id",
+  "height": "3000",
+  "profile": "http://iiif.io/api/image/2/level0.json",
+  "protocol": "http://iiif.io/api/image",
+  "width": "4000"
+}
+```
+
+It is invalid because the `profile` should be a list, and not a single URI.
+
+
+``` sh
+image-api>python build_image_info_frame2.py 
+```
+
+will produce output that when run repeatedly vaires the order of the two entries in `profile`:
+
+``` json
+...
+  "profile": [
+    "http://example.org/profileB",
+    "http://iiif.io/api/image/2/level0.json"
+  ],
+...
+```
+
+``` shell
+image-api> diff build_image_info_frame2.py  build_image_info_frame3.py 
+```
+
+``` python
+41a42,55
+> if ('profile' in framed):
+>     # Fix-up `profile` to be a list
+>     if (isinstance(framed['profile'], str)):
+>         framed['profile'] = [ framed['profile'] ]
+>     # Fix-up `profile` list to have IIIF compliance URI first
+>     if (len(framed['profile']) > 1):
+>         profiles = []
+>         for profile in framed['profile']:
+>             if (profile.startswith('http://iiif.io/api/image/')):
+>                 profiles.insert(0, profile)
+>             else:
+>                 profiles.append(profile)
+>         framed['profile'] = profiles
+>     
+```
+   
+``` shell
+image-api> python build_image_info_frame3.py 
+```
+
+```
+{
+  "@context": "http://iiif.io/api/image/2/context.json",
+  "@id": "http://example.org/prefix/id",
+  "height": "3000",
+  "profile": [
+    "http://iiif.io/api/image/2/level0.json",
+    "http://example.org/profileA"
+  ],
+  "protocol": "http://iiif.io/api/image",
+  "width": "4000"
+}
+```
