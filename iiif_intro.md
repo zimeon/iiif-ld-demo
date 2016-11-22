@@ -4,6 +4,7 @@
 
 > The IIIF defines simple APIs and data formats to give scholars uniform and rich access to image-based resources hosted around the world. The community aims to develop, cultivate and document shared technologies, including image servers and web clients that provide a world-class user experience in viewing, comparing, manipulating and annotating images.
 
+  * Slides: **[Introduction to IIIF](http://www.slideshare.net/azaroth42/introduction-to-iiif)**
   * The [IIIF Image API](http://iiif.io/api/image) supports rich access to _image_ resources -- the 'bits'.
   * The [IIIF Presentation API](http://iiif.io/api/presentation) provides the information necessary for clients to present image-based resource to users in rich, online viewing environments.
   * Supporting specifications deal with [authentication](http://iiif.io/api/auth) and [search within resources](http://iiif.io/api/search).
