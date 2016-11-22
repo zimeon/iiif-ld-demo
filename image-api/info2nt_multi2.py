@@ -2,7 +2,7 @@
 from rdflib import Graph
 info_json = """
 {
-  "@context" : "context.json",
+  "@context" : "image_context.json",
   "@id" : "http://example.org/svc/id1",
   "protocol" : "http://iiif.io/api/image",
   "width" : 6000,

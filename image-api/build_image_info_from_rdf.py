@@ -30,7 +30,7 @@ sc = Namespace("http://iiif.io/api/presentation/2#")
 g = Graph()
 id = URIRef("http://example.org/prefix/id")
 # context = "http://iiif.io/api/image/2/context.json"
-context = "context.json"
+context = "image_context.json"
 g.add((id, dcterms.conformsTo, URIRef("http://iiif.io/api/image")))
 g.add((id, exif.width, Literal(4000, datatype=XSD.integer)))
 g.add((id, exif.height, Literal(3000, datatype=XSD.integer)))
