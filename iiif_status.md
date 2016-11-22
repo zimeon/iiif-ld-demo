@@ -14,10 +14,10 @@ For a likely more up-to-date list of applications, clients and servers, see **[A
 
 (Use Image and Presentation APIs)
 
-  * **[UniversalViewer](https://github.com/UniversalViewer/universalviewer)**
-  * **[Mirador](http://projectmirador.org/)**
-  * [Internet Archive Bookreader with IIIF](https://github.com/aeschylus/IIIFBookReader)
-  * [Leaflet-IIIF](https://github.com/mejackreed/Leaflet-IIIF)
+  * **[UniversalViewer](https://github.com/UniversalViewer/universalviewer)** - best IIIF bookreader
+  * **[Mirador](http://projectmirador.org/)** - rich multi-up and comparison views
+  * [Internet Archive Bookreader with IIIF](https://github.com/aeschylus/IIIFBookReader) - the widely deployed IA bookreader working on IIIF
+  * [Leaflet-IIIF](https://github.com/mejackreed/Leaflet-IIIF) - clean/simple UI and GeoJSON support for maps
   * [diva.js](http://ddmal.github.io/diva.js/)
 
 ## [IIIF Image Clients](http://iiif.io/apps-demos/#image-viewing-clients)
