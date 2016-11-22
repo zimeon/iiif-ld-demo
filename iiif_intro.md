@@ -26,3 +26,7 @@
 
   * See [Apps and Demos](http://iiif.io/apps-demos/) list on the IIIF site 
   * See [IIIF Showcase](http://showcase.iiif.io/) site
+
+---
+
+_| [Index](README.md) | [Next: IIIF Status](iiif_status.md) |_
