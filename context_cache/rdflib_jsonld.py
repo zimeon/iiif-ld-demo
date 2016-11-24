@@ -4,13 +4,14 @@ import logging
 from rdflib.py3compat import PY3
 from rdflib_jsonld import util
 from rdflib.parser import create_input_source
+import json
+from .local_cache import in_cache
 if PY3:
     from io import StringIO
-import json
 
-from .local_cache import in_cache
 
 def source_to_json_with_cache(source):
+    """Look for local cached version of source, else fallback to loading."""
     # Based on rdflib.util.source_to_json
     filepath = in_cache(source)
     if (filepath is None):
@@ -28,6 +29,7 @@ def source_to_json_with_cache(source):
             return json.load(stream)
     finally:
         stream.close()
+
 
 # On load set up rdflib code to use cached loader
 util.source_to_json = source_to_json_with_cache

@@ -17,6 +17,7 @@ def index_cache():
     global INDEX
     INDEX = json.loads(open(filename, 'r').read())
 
+
 def in_cache(url):
     """Return path if url in cache, else None."""
     if (url not in INDEX):
