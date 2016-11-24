@@ -6,5 +6,7 @@
   "http://iiif.io/api/image/2/info_frame.json":
     "iiif_image_2_info_frame.json",
   "http://iiif.io/api/presentation/2/manifest_frame.json":
-    "iiif_presentation_2_manifest_frame.json"
+    "iiif_presentation_2_manifest_frame.json",
+  "http://json-ld.org/contexts/person.jsonld":
+    "jsonld_org_person.json"
 }
