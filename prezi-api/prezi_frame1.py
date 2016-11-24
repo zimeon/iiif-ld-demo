@@ -6,7 +6,7 @@ http://iiif.io/api/annex/notes/jsonld/#sample-usage
 from pyld import jsonld
 import json
 
-import pyld_local_cache
+import context_cache.pyld
 
 # copy of http://iiif.io/api/presentation/2.1/example/fixtures/1/manifest.json
 manifest_doc = open("manifest_fixture_1.json").read()

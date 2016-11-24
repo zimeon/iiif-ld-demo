@@ -1,5 +1,5 @@
 {
-  "@context" : "image_context.json",
+  "@context" : "http://iiif.io/api/image/2/context.json",
   "@id" : "http://www.example.org/image-service/abcd1234/1E34750D-38DB-4825-A38A-B60A345E591C",
   "protocol" : "http://iiif.io/api/image",
   "width" : 6000,
@@ -46,12 +46,12 @@
   ],
   "service" : [
     {
-      "@context": "physdim_context.json",
+      "@context": "http://iiif.io/api/annex/service/physdim/1/context.json",
       "profile": "http://iiif.io/api/annex/services/physdim",
       "physicalScale": 0.0025,
       "physicalUnits": "in"
     },{
-      "@context" : "geojson_context.json",
+      "@context" : "http://geojson.org/contexts/geojson-base.jsonld",
       "@id" : "http://www.example.org/geojson/paris.json"
     }
   ]

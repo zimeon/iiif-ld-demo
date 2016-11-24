@@ -40,4 +40,4 @@ See also [servers shimmed for IIIF](https://github.com/IIIF/awesome-iiif/blob/ma
 
 ---
 
-_| [Index](README.md) | [Next: IIIF and Linked Data](iiif_ld.md) |_
+_| [Index](README.md) | [Next: IIIF and Linked Data](iiif_ld/README.md) |_

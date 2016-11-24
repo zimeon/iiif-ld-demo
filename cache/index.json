@@ -8,5 +8,9 @@
   "http://iiif.io/api/presentation/2/manifest_frame.json":
     "iiif_presentation_2_manifest_frame.json",
   "http://json-ld.org/contexts/person.jsonld":
-    "jsonld_org_person.json"
+    "jsonld_org_person.json",
+  "http://iiif.io/api/annex/service/physdim/1/context.json":
+    "physdim_context.json",
+  "http://geojson.org/contexts/geojson-base.jsonld":
+    "geojson_context.json"
 }

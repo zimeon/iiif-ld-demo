@@ -1,1 +1,1 @@
-../lib/rdflib_pyld_compat.py
+../rdflib_pyld_compat.py
