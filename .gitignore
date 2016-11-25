@@ -1,3 +1,5 @@
 .cache
 _cache
 __pycache__
+.eggs
+iiif_ld_demo.egg-info
