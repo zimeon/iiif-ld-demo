@@ -4,7 +4,7 @@
 
 ## Topics
 
-  * [Setup](setup.md)
+If intending to try out the examples, see the [setup](setup.md) instructions.
 
   * [IIIF Introduction](iiif_intro.md) 
   * [IIIF Status](iiif_status.md)
