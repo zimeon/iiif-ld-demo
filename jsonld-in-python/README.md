@@ -4,7 +4,7 @@ There are two major Python libraries with different strengths and limitations.
 
 ## rdflib
 
-[`rdflib`](http://rdflib.readthedocs.io/en/stable/apidocs/) is the go-to library for working with RDF in Python. It supports parsing and serializing RDF in many formats (including JSON-LD via the `rdflib-jsonld` extension), supports in memory generation and manipulation of RDF graphs, and has connectors for SPARQL etc.. However, even with the `rdflib-jsonld` extension, support for JSON-LD is limited, and the functions of a JSON-LD processor are no implemented.
+[`rdflib`](http://rdflib.readthedocs.io/en/stable/apidocs/) is the go-to library for working with RDF in Python. It supports parsing and serializing RDF in many formats (including JSON-LD via the [`rdflib-jsonld`](https://github.com/RDFLib/rdflib-jsonld) extension), supports in memory generation and manipulation of RDF graphs, and has connectors for SPARQL etc.. However, even with the `rdflib-jsonld` extension, support for JSON-LD is limited, and the functions of a JSON-LD processor are not implemented.
 
 ## PyLD
 
@@ -12,11 +12,11 @@ There are two major Python libraries with different strengths and limitations.
 
 ## Using `rdflib` and `PyLD` together?
 
-Because `rdflib` and `PyLD` use different in-memory data structures it is not trivial to use the powerful RDF support of rdflib in conjuction with the JSON-LD processor implementation of PyLD. A small compatibility library [`rdflib_pyld_compat.py`](../rdflib_pyld_compat.py) provides a bridge from rdflib to PyLD formats without the need to serialize and then re-parse the data.
+Because `rdflib` and `PyLD` use different in-memory data structures it is not trivial to use the powerful RDF support of `rdflib` in conjuction with the JSON-LD processor implementation of PyLD. A small compatibility library [`rdflib_pyld_compat.py`](../rdflib_pyld_compat.py) provides a bridge from rdflib to PyLD formats without the need to serialize and then re-parse the data.
 
 **Warning:** `rdflib_pyld_compat.py` was written while preparing this demonstration as has not been thoroughly exercised or tested.
 
-A simple example program `<select_anno.py>` illustrates operations that one might want to do in both libraries: first building and manipulating an RDF graph with `rdflib`, then processing and tweaking the JSON with `PyLD`. The program take one command line argument which is the URI of the the annotation target used to select annotations. Running:
+A simple example program [`select_anno.py`](select_anno.py) illustrates operations that one might want to do in both libraries: first building and manipulating an RDF graph with `rdflib`, then processing and tweaking the JSON with `PyLD`. The program take one command line argument which is the URI of the the annotation target used to select annotations. Running:
 
 ``` shell
 jsonld-in-python> python select_anno.py http://example.org/hand2
@@ -33,6 +33,16 @@ produces:
   "resource": "http://example.org/hand1",
   "type": "oa:Annotation"
 }
+```
+
+See the  [`select_anno.py`](select_anno.py) code to see use of `pyld_json_from_rdflib_graph(...)` to get PyLD data from an `rdflib` graph:
+
+``` python
+from rdflib_pyld_compat import pyld_json_from_rdflib_graph
+...
+
+# Get JSON-LD object in PyLD form
+jld = pyld_json_from_rdflib_graph(g2)
 ```
 
 ---
