@@ -15,11 +15,11 @@ All IIIF work assumes that content and descriptions live on the web, as web reso
 
 Going back to Tim Berners Lee in 2006:
 
-> Like the web of hypertext, the web of data is constructed with documents on the web. However,  unlike the web of hypertext,  where links are relationships anchors in hypertext documents written in HTML, for data they links  between arbitrary things described by RDF,.  The URIs identify any kind of object or  concept.   But for HTML or RDF, the same expectations apply to make the web grow:
->   * Use URIs as names for things
->   * Use HTTP URIs so that people can look up those names.
->   * When someone looks up a URI, provide useful information, using the standards (RDF*, SPARQL)
->   * Include links to other URIs. so that they can discover more thing
+> _Like the web of hypertext, the web of data is constructed with documents on the web. However,  unlike the web of hypertext,  where links are relationships anchors in hypertext documents written in HTML, for data they links  between arbitrary things described by RDF,.  The URIs identify any kind of object or concept. But for HTML or RDF, the same expectations apply to make the web grow:_
+>   * _Use URIs as names for things)
+>   * _Use HTTP URIs so that people can look up those names_
+>   * _When someone looks up a URI, provide useful information, using the standards (RDF*, SPARQL)_
+>   * _Include links to other URIs. so that they can discover more thing_
 
   * URIs as names/identifiers per Architecture of the Web
   * HTTP URIs which resolve used, redirects for URIs that identify non-information resources / real-world objects (whichever term you prefer).
@@ -54,17 +54,17 @@ The Presentation API also describes the use of annotations for transcription (al
 
 > _"JSON-LD is a lightweight Linked Data format. It is easy for humans to read and write. It is based on the already successful JSON format and provides a way to help JSON data interoperate at Web-scale. JSON-LD is an ideal data format for programming environments, REST Web services, and unstructured databases such as CouchDB and MongoDB."_ \[[json-ld.org](http://json-ld.org/)]
 
-Usability and smooth extension from plain JSON are key. You'll notice that this summary doesn't mention RDF directly. I think that is no accident because, while the JSON-LD community is composed of linked data and RDF beleivers, they have a focus on practical issues and work hard to avoid the real or perceived complexity and performance issues associated with RDF and the Semantic Web.
+Usability and smooth extension from plain JSON are key. You'll notice that this summary doesn't mention RDF directly. I think that is no accident because, while, broadly speaking, the JSON-LD community is composed of linked data and RDF believers, they have a focus on practical issues and work hard to avoid the real or perceived complexity and performance issues associated with RDF and the Semantic Web.
 
 The JSON-LD specification does describe the close relationship between JSON-LD and RDF:
 
-> _"JSON-LD is a [concrete RDF syntax](https://www.w3.org/TR/rdf11-concepts/#dfn-concrete-rdf-syntax) as described in \[[RDF11-CONCEPTS](https://www.w3.org/TR/rdf11-concepts/)\]. Hence, a JSON-LD document is both an RDF document and a JSON document and correspondingly represents an instance of an RDF data model. However, JSON-LD also extends the RDF data model to optionally allow JSON-LD to serialize [generalized RDF Datasets](http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset). The JSON-LD extensions to the RDF data model are:
+> _"JSON-LD is a [concrete RDF syntax](https://www.w3.org/TR/rdf11-concepts/#dfn-concrete-rdf-syntax) as described in \[[RDF11-CONCEPTS](https://www.w3.org/TR/rdf11-concepts/)\]. Hence, a JSON-LD document is both an RDF document and a JSON document and correspondingly represents an instance of an RDF data model. However, JSON-LD also extends the RDF data model to optionally allow JSON-LD to serialize [generalized RDF Datasets](http://www.w3.org/TR/rdf11-concepts/#dfn-generalized-rdf-dataset). The JSON-LD extensions to the RDF data model are:_
 > 
->  * In JSON-LD properties can be IRIs or blank nodes whereas in RDF properties (predicates) have to be IRIs. This means that JSON-LD serializes generalized RDF Datasets.
->  * In JSON-LD lists are part of the data model whereas in RDF they are part of a vocabulary, namely \[[RDF-SCHEMA](https://www.w3.org/TR/rdf-schema/)].
->  * RDF values are either typed literals (typed values) or language-tagged strings whereas JSON-LD also supports JSON's native data types, i.e., number, strings, and the boolean values true and false. The JSON-LD Processing Algorithms and API specification \[[JSON-LD-API](http://json-ld.org/spec/latest/json-ld/)] defines the conversion rules between JSON's native data types and RDF's counterparts to allow round-tripping.
+>  * _In JSON-LD properties can be IRIs or blank nodes whereas in RDF properties (predicates) have to be IRIs. This means that JSON-LD serializes generalized RDF Datasets._
+>  * _In JSON-LD lists are part of the data model whereas in RDF they are part of a vocabulary, namely \[[RDF-SCHEMA](https://www.w3.org/TR/rdf-schema/)]._
+>  * _RDF values are either typed literals (typed values) or language-tagged strings whereas JSON-LD also supports JSON's native data types, i.e., number, strings, and the boolean values true and false. The JSON-LD Processing Algorithms and API specification \[[JSON-LD-API](http://json-ld.org/spec/latest/json-ld/)] defines the conversion rules between JSON's native data types and RDF's counterparts to allow round-tripping._
 > 
-> Summarized, these differences mean that JSON-LD is capable of serializing any RDF graph or dataset and most, but not all, JSON-LD documents can be directly interpreted as RDF as described in RDF 1.1 Concepts \[[RDF11-CONCEPTS](https://www.w3.org/TR/rdf11-concepts/)\]."_ \[[ - Relationship to RDF](http://json-ld.org/spec/latest/json-ld/#relationship-to-rdf)\
+> _Summarized, these differences mean that JSON-LD is capable of serializing any RDF graph or dataset and most, but not all, JSON-LD documents can be directly interpreted as RDF as described in RDF 1.1 Concepts \[[RDF11-CONCEPTS](https://www.w3.org/TR/rdf11-concepts/)\]."_ \[[ - Relationship to RDF](http://json-ld.org/spec/latest/json-ld/#relationship-to-rdf)\
 
 The use of JSON-LD by all IIIF specifications means that all data exposed through them can trivially be used in RDF systems. It also means that RDF systems _should_ readily be able to be used to generate IIIF compatible description documents. Use as RDF depends on the JSON-LD `@context`, and generation from RDF systems depends on both the JSON-LD `@context` and _framing_ (discussed [later](jsonld-framing/index.md)).
 
