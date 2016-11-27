@@ -37,4 +37,4 @@ produces:
 
 ---
 
-_| [Index](../README.md) | [Next: IIIF and Linked Data](../iiif_ld/README.md) |_
+_| [Index](../README.md) | [Next: JSON-LD and Framing](../jsonld-framing/README.md) |_
