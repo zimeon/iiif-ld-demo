@@ -17,7 +17,7 @@
 > The IIIF is driven by a community of research, national and state libraries, museums, companies and image repositories committed to providing access to high quality image resources.
 
   * Open, transparent and welcoming community
-  * Primary communication channel is [iiif-discuss](http://iiif.io/community/#how-to-get-involved) mailing list
+  * Primary communication channel is [iiif-discuss](https://groups.google.com/forum/#!forum/iiif-discuss) mailing list
   * A number of [working and interest groups](http://iiif.io/community/groups/)
   * All [specifications open and CC-BY licensed](http://iiif.io//api/annex/notes/disclaimer/)
   * The IIIF Consortium (IIIF-C) is a membership organization that provides _"ongoing oversight for the development of IIIF technologies and managing the growth of the community"_. Participation in IIIF activities is not limited to member organizations or individuals.
