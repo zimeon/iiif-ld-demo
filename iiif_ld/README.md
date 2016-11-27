@@ -64,7 +64,7 @@ The JSON-LD specification does describe the close relationship between JSON-LD a
 >  * _In JSON-LD lists are part of the data model whereas in RDF they are part of a vocabulary, namely \[[RDF-SCHEMA](https://www.w3.org/TR/rdf-schema/)]._
 >  * _RDF values are either typed literals (typed values) or language-tagged strings whereas JSON-LD also supports JSON's native data types, i.e., number, strings, and the boolean values true and false. The JSON-LD Processing Algorithms and API specification \[[JSON-LD-API](http://json-ld.org/spec/latest/json-ld/)] defines the conversion rules between JSON's native data types and RDF's counterparts to allow round-tripping._
 > 
-> _Summarized, these differences mean that JSON-LD is capable of serializing any RDF graph or dataset and most, but not all, JSON-LD documents can be directly interpreted as RDF as described in RDF 1.1 Concepts \[[RDF11-CONCEPTS](https://www.w3.org/TR/rdf11-concepts/)\]."_ \[[ - Relationship to RDF](http://json-ld.org/spec/latest/json-ld/#relationship-to-rdf)]
+> _Summarized, these differences mean that JSON-LD is capable of serializing any RDF graph or dataset and most, but not all, JSON-LD documents can be directly interpreted as RDF as described in RDF 1.1 Concepts \[[RDF11-CONCEPTS](https://www.w3.org/TR/rdf11-concepts/)\]."_ \[[JSON-lD - Relationship to RDF](http://json-ld.org/spec/latest/json-ld/#relationship-to-rdf)]
 
 The use of JSON-LD by all IIIF specifications means that all data exposed through them can trivially be used in RDF systems. It also means that RDF systems _should_ readily be able to be used to generate IIIF compatible description documents. Use as RDF depends on the JSON-LD `@context`, and generation from RDF systems depends on both the JSON-LD `@context` and _framing_ (discussed [later](jsonld-framing/index.md)).
 
@@ -99,7 +99,7 @@ The above in interpretted correctly as the triple:
 <http://zimeon.com/me> <http://xmlns.com/foaf/0.1/name> "Simeon" .
 ```
 
-(Don't worry about the fact that the playground tab is labelled "N-Quads", triples in the default graph are represented identically to ntriples output (see [N-Quads spec](https://www.w3.org/TR/n-quads/#simple-triples)). The IIIF specifications do no make use of named graphs.)
+(Don't worry about the fact that the playground tab is labelled "N-Quads", triples in the default graph are represented identically to ntriples output (see [N-Quads spec](https://www.w3.org/TR/n-quads/#simple-triples)). The IIIF specifications do not make use of named graphs.)
 
 In the above we supplied the `@context` inline. It can alternatively be specified by reference. In the example below we use a context on the `json-ld.org` site, which includes the same definition of `name`. Hence, the JSON-LD:
 
@@ -124,7 +124,7 @@ Finally, we could do the same thing without a context, by simply putting in the 
 }
 ```
 
-However, in this we lost the nice `name` JSON key. Perhaps in this minimal example it looks simpler but imagine a more complex description where the use of simple/clean JSON keys nicely hides the complexity of IRIs:
+However, in this we lost the nice `name` JSON property name. Perhaps in this minimal example it looks simpler but imagine a more complex description where the use of simple/clean JSON propery names nicely hides the complexity of IRIs:
 
 ``` json
 {
@@ -171,7 +171,13 @@ which includes the above RDF ntriples, and uses the context to produce:
 }
 ```
 
-**FIXME** - add typing, prefixes, nesting, @context for RDF -> JSON-LD
+Other things that the `@context` can do:
+
+  * make implicit typing in JSON-LD explicit in RDF
+  * add namespace (or other) prefixes
+  * control nesting
+  * control lists vs. sets which both use the array syntax in JSON
+  * also provides information for transformation of data from RDF into JSON-LD
 
 Further reading on JSON-LD:
 
@@ -189,7 +195,7 @@ So far there are very little work around IIIF that uses an RDF stack. There is a
 
 The Open World assumption provides a powerful and useful test of data models and APIs: _"If this data is combined with other data conforming to the same model/API, or with LD conforming to LD best practices, will it make sense or lead to contradictions or confusions?"._ Key examples include contextual information (e.g. proxy in OAI-ORE) and ordering (actually a context issue too; non-contextualizing approaches fail the test).
 
-### Thinking extensible
+### Thinking extensibly
 
 Related to Open World thinking, a good pattern or way of thinking is that models and APIs should be designed to allow or ignore additional information or extensions wherever possible. This supports extension, allows loser coupling of community work, and help to future proof work by tempering tendencies to be overly prescriptive based on current community The flip side of this is that notions of validation and conformance require more thought. Namespaces are very useful here.
 
