@@ -1,6 +1,6 @@
 """Use @context to convert RDF to JSON-LD."""
 from rdflib import Graph
-import context_cache.rdflib_jsonld
+import context_cache.for_rdflib_jsonld
 
 g = Graph().parse(format="nt", data="""
 <http://zimeon.com/me> <http://schema.org/gender> "Male" .

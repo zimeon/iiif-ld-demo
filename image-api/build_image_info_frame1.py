@@ -11,7 +11,7 @@ from rdflib_pyld_compat import pyld_json_from_rdflib_graph
 
 import json
 from pyld import jsonld
-import context_cache.pyld
+import context_cache.for_pyld
 
 # Namespaces used in IIIF Image API,
 # see: http://iiif.io/api/image/2/context.json

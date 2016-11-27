@@ -1,4 +1,4 @@
-"""Example code to read and frame manifest.
+"""Example code to read and write manifest - no framing.
 
 Based on
 http://iiif.io/api/annex/notes/jsonld/#sample-usage
@@ -12,6 +12,6 @@ import context_cache.for_pyld
 manifest_doc = open("manifest_fixture_1.json").read()
 manifest = json.loads(manifest_doc)
 print(json.dumps(jsonld.compact(
-    jsonld.frame(manifest, "http://iiif.io/api/presentation/2/manifest_frame.json"),
+    manifest,
     "http://iiif.io/api/presentation/2/context.json"),
     indent=2, sort_keys=True))

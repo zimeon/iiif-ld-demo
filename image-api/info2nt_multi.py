@@ -1,6 +1,6 @@
 """Parse simple info.json example with a multiple profile entries."""
 from rdflib import Graph
-import context_cache.rdflib_jsonld
+import context_cache.for_rdflib_jsonld
 info_json = """
 {
   "@context" : "http://iiif.io/api/image/2/context.json",
