@@ -209,4 +209,4 @@ It is often thought that linked (open) data means that one's internal data and m
 
 ---
 
-_| [Index](../README.md) | [Next: JSON-LD in Python](../jsonld-in-python.md) |_
+_| [Index](../README.md) | [Next: JSON-LD in Python](../jsonld-in-python/README.md) |_
