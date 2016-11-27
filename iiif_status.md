@@ -1,8 +1,8 @@
 # IIIF Status
 
-Last updated: 2016-11-21
+Last updated: 2016-11-27
 
-**Warning - if the date above if not recent then the information on this page is almost certainly out-of-date. IIIF is evolving rapidly... check the [IIIF website](http://iiif.io/)!***
+**Warning - if the date above is not recent then the information on this page is almost certainly out-of-date. IIIF is evolving rapidly... check the [IIIF website](http://iiif.io/)!***
 
   * Started in 2012 (about 20 people involved in early discussions)
   * [IIIF Discuss](https://groups.google.com/forum/#!forum/iiif-discuss) general email discussion list (578 members, 2016-11-21)
