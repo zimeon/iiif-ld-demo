@@ -1,6 +1,6 @@
 # Setup instructions for iiif-ld-demo
 
-## 1. Check your python
+## 1. Check your Python version
 
 Examples have been tested with Python 2.7, 3.3, 3.4 and 3.5. They will not work with Pythons earlier than 2.7. You can check your version with:
 
@@ -9,7 +9,7 @@ Examples have been tested with Python 2.7, 3.3, 3.4 and 3.5. They will not work 
 Python 3.5.1 :: Continuum Analytics, Inc.
 ```
 
-I find that a user-space version of Python installed with [miniconda](http://conda.pydata.org/docs/install/quick.html) is very convenient and avoids confusion with the system Python on Macs. If you are using the system Python then you will need to use `sudo` to install any additional modules in the instructions below.
+I find that a user-space version of Python installed with [miniconda](http://conda.pydata.org/docs/install/quick.html) is very convenient and avoids confusion with the system Python. If you are using the system Python then you will need to use `sudo` to install any additional modules in the instructions below.
 
 ## 2. Clone the repository
 
