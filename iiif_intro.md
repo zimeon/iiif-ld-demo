@@ -20,7 +20,7 @@
   * Primary communication channel is [iiif-discuss](https://groups.google.com/forum/#!forum/iiif-discuss) mailing list
   * A number of [working and interest groups](http://iiif.io/community/groups/)
   * All [specifications open and CC-BY licensed](http://iiif.io//api/annex/notes/disclaimer/)
-  * The IIIF Consortium (IIIF-C) is a membership organization that provides _"ongoing oversight for the development of IIIF technologies and managing the growth of the community"_. Participation in IIIF activities is not limited to member organizations or individuals.
+  * The IIIF Consortium (IIIF-C) is a [membership organization](http://iiif.io/community/consortium/#members) that provides _"ongoing oversight for the development of IIIF technologies and managing the growth of the community"_. Participation in IIIF activities is not limited to member organizations or individuals.
 
 ## Tools and Implementations
 
