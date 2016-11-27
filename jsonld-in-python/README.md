@@ -4,7 +4,7 @@ There are two major Python libraries with different strengths and limitations.
 
 ## rdflib
 
-[`rdflib`](http://rdflib.readthedocs.io/en/stable/apidocs/) is the go-to library for working with RDF in Python. It supports parsing and serializing RDF in many formats (including JSON-LD via the `rdflib-jsonld` extension), supports in memory generation and manipulation of RDF graphs, and has connectors for SPARQL etc.. However, even with the `rdflib-jsonld` extension, support for JSON-LD is limited, and the functions of a JSON-LD processor are no implemented.
+[`rdflib`](http://rdflib.readthedocs.io/en/stable/apidocs/) is the go-to library for working with RDF in Python. It supports parsing and serializing RDF in many formats (including JSON-LD via the [`rdflib-jsonld`](https://github.com/RDFLib/rdflib-jsonld) extension), supports in memory generation and manipulation of RDF graphs, and has connectors for SPARQL etc.. However, even with the `rdflib-jsonld` extension, support for JSON-LD is limited, and the functions of a JSON-LD processor are not implemented.
 
 ## PyLD
 
