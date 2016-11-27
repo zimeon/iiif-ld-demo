@@ -9,7 +9,7 @@ Examples have been tested with Python 2.7, 3.3, 3.4 and 3.5. They will not work 
 Python 3.5.1 :: Continuum Analytics, Inc.
 ```
 
-(I find that a user-space version of Python installed with [miniconda](http://conda.pydata.org/docs/install/quick.html) is very convenient and avoids confusion with the system Python on Macs.)
+I find that a user-space version of Python installed with [miniconda](http://conda.pydata.org/docs/install/quick.html) is very convenient and avoids confusion with the system Python on Macs. If you are using the system Python then you will need to use `sudo` to install any additional modules in the instructions below.
 
 ## 2. Clone the repository
 
@@ -43,6 +43,6 @@ There are some simple tests which check the output of various sample programs ag
 > python setup.py test
 ```
 
-(These are the same tests as run by Travis CI to shown the [![Build Status](https://travis-ci.org/zimeon/iiif-ld-demo.svg?branch=master)](https://travis-ci.org/zimeon/iiif-ld-demo) icon on the front page.)
+(These are the same tests as run by Travis CI to show the [![Build Status](https://travis-ci.org/zimeon/iiif-ld-demo.svg?branch=master)](https://travis-ci.org/zimeon/iiif-ld-demo) icon on the front page. If this icon doesn't show _"build: passing"_ then you should expect problems!)
 
 If the tests all pass then you should be good-to-go, otherwise some investigation is needed...
