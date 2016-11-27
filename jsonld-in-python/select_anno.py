@@ -36,14 +36,13 @@ jld = pyld_json_from_rdflib_graph(g2)
 
 # Apply context in PyLD
 context = {"@context": [{
-  "id": "@id",
-  "type": "@type",
-  "oa": "http://www.w3.org/ns/oa#",
-  "motivation": {"@type": "@id", "@id": "oa:motivatedBy"},
-  "resource": {"@type": "@id", "@id": "oa:hasBody"},
-  "on": {"@type": "@id", "@id": "oa:hasTarget"}
-  }]
-}
+    "id": "@id",
+    "type": "@type",
+    "oa": "http://www.w3.org/ns/oa#",
+    "motivation": {"@type": "@id", "@id": "oa:motivatedBy"},
+    "resource": {"@type": "@id", "@id": "oa:hasBody"},
+    "on": {"@type": "@id", "@id": "oa:hasTarget"}
+}]}
 
 # Manipulate the JSON in some way (say switch @context
 # to a reference) and output
