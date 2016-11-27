@@ -199,14 +199,14 @@ The Open World assumption provides a powerful and useful test of data models and
 
 Related to Open World thinking, a good pattern or way of thinking is that models and APIs should be designed to allow or ignore additional information or extensions wherever possible. This supports extension, allows loser coupling of community work, and help to future proof work by tempering tendencies to be overly prescriptive based on current community The flip side of this is that notions of validation and conformance require more thought. Namespaces are very useful here.
 
-### Inverse: If IIIF uses linked data, should I use a linked data stack to implement it?
+## Inverse: If IIIF uses linked data, should I use a linked data stack to implement it?
 
 The short answer is "no", most IIIF implementations are not based on RDF technologies. There may be situations where it makes sense to implement a complete IIIF stack based on RDF technologies. I'm sure that certain components are a very good match, for example annotation servers. However, I think one should not fall for the following fallacy:
 
-### The "Mi data es su data" fallacy
+### The _"Mi data es su data"_ fallacy
 
 It is often thought that linked (open) data means that one's internal data and model is the data and model that everyone else should see and use. In many (most?) cases this is wrong. Examples where this is problematic include: internal data that makes the model more complicated and less useful for consumers, inefficiency of RDF as an internal format, difficulty of logging and change management in RDF data, and separation of private and public data.
 
 ---
 
-_| [Index](../README.md) | [Next: Image API](../image-api/README.md) |_
+_| [Index](../README.md) | [Next: JSON-LD in Python](../jsonld-in-python.md) |_

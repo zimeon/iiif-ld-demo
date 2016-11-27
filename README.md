@@ -4,9 +4,12 @@
 
 ## Topics
 
+  * [Setup](setup.md)
+
   * [IIIF Introduction](iiif_intro.md) 
   * [IIIF Status](iiif_status.md)
   * [IIIF and Linked Data](iiif_ld/README.md)
+  * [JSON-LD in Python](jsonld-in-python.md)
   * [JSON-LD and Framing](jsonld-framing/README.md)
   * [IIIF Image API](image-api/README.md)
   * [IIIF Presentation API](prezi-api/README.md)
