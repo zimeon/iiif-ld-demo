@@ -8,6 +8,11 @@
 
   * Slides: **[Presentation API Walkthrough](http://www.slideshare.net/IIIF_io/presentation-api-walkthrough)**
 
+As already described, the `@context` provides all the information needed to interpret Presentation API JSON-LD as RDF. The complexity comes when trying to write Presentation API compatible JSON-LD from RDF data. 
+
+  * [IIIF Presentation API Framing](prezi_framing.md)
+  * [Creating a Manifest](prezi_manifest.md)
+
 ---
 
-_| [Index](README.md) | [Next: ]() |_
+_| [Index](README.md) |_
