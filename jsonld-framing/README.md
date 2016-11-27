@@ -207,7 +207,13 @@ produces:
 
 FIXME:
 
-  * difference of 1 instance vs 2 with {} and \[]
+  * add examples showing difference of 1 instance vs 2 with {} and \[]
+
+---
+
+_| [Index](../README.md) | [Next: [IIIF Image API](../image-api/README.md) |_
+
+---
 
 ## References
 
