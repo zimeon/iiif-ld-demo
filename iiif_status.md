@@ -2,13 +2,13 @@
 
 Last updated: 2016-11-27
 
-**Warning - if the date above is not recent then the information on this page is almost certainly out-of-date. IIIF is evolving rapidly... check the [IIIF website](http://iiif.io/)!***
+**Warning - if the date above is not recent then the information on this page is almost certainly out-of-date. IIIF is evolving rapidly... check the [IIIF website](http://iiif.io/)!**
 
   * Started in 2012 (about 20 people involved in early discussions)
   * [IIIF Discuss](https://groups.google.com/forum/#!forum/iiif-discuss) general email discussion list (578 members, 2016-11-21)
   * [IIIF Slack Channels](https://iiif.slack.com/stats) (210 members, 2016-11-21)
 
-For a likely more up-to-date list of applications, clients and servers, see **[Awesome-IIIF](https://github.com/IIIF/awesome-iiif/blob/master/readme.md)**. This list maybe more opinionated however.
+For an up-to-date list of applications, clients, servers and other IIIF related sites, see **[Awesome-IIIF](https://github.com/IIIF/awesome-iiif/blob/master/readme.md)**. The list below offers an opinionated and likely less up-to-date subset.
 
 ## [IIIF Image Applications](http://iiif.io/apps-demos/#image-viewing-clients)
 
