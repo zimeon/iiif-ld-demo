@@ -1,14 +1,14 @@
 # Read Image API `info.json`
 
-The [IIIF Image API](http://iiif.io/api/image/2.1/) specifies as JSON-LD document format for Image Information, called `info.json`. The document provides information required for a client to understand what image services are available for the given image. In addition to this technical metadata there may also be rights and licensing information. This is service/resource-based and not server-based: there is a separate `info.json` for every image.
+The [IIIF Image API](http://iiif.io/api/image/2.1/) Image Information `info.json` document _MUST_ include a `@context` `<http://iiif.io/api/image/2/context.json>` and this specifies how to translate the simple JSON into RDF.
 
-The `info.json` document _MUST_ include a `@context` `<http://iiif.io/api/image/2/context.json>` and this specifies how to translate the simple JSON into RDF.
+The example code [`info2nt.py`](info2nt.py) reads the [complete response example](http://iiif.io/api/image/2.1/#complete-response) given in the specification and writes out the resulting ntriples:
 
 ``` shell
 image-api> python info2nt.py
 ```
 
-produces output (perhaps with different BNode identifiers):
+produces output (likely with different BNode identifiers):
 
 ``` nt
 <http://www.example.org/image-service/abcd1234/1E34750D-38DB-4825-A38A-B60A345E591C> <http://purl.org/dc/terms/rights> <http://example.org/rights/license1.html> .
@@ -92,3 +92,33 @@ _:Ndd29e1e8d2a24954a7c2dea7f9332c36 <http://www.w3.org/2003/12/exif/ns#width> "1
 <http://example.org/svc/id1> <http://www.w3.org/2003/12/exif/ns#height> "4000"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://example.org/svc/id1> <http://www.w3.org/2003/12/exif/ns#width> "6000"^^<http://www.w3.org/2001/XMLSchema#integer> .
 ```
+
+where we see a `iiif:hasSize` predicate with bnode object that has `exif:height` and `exif:width`. If we were to add a second specification to the `sizes` array in `info.json` we see:
+
+``` shell
+image-api> python info2nt_multi3.py
+```
+
+which produces:
+
+``` nt
+_:N718d40377e35443e88b916b91ad31619 <http://www.w3.org/2003/12/exif/ns#width> "150"^^<http://www.w3.org/2001/XMLSchema#integer> .
+_:N035b95473deb424d94752befb8f5e996 <http://www.w3.org/2003/12/exif/ns#width> "300"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/svc/id1> <http://purl.org/dc/terms/conformsTo> <http://iiif.io/api/image> .
+_:N718d40377e35443e88b916b91ad31619 <http://www.w3.org/2003/12/exif/ns#height> "100"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/svc/id1> <http://www.w3.org/2003/12/exif/ns#height> "4000"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/svc/id1> <http://iiif.io/api/image/2#hasSize> _:N035b95473deb424d94752befb8f5e996 .
+<http://example.org/svc/id1> <http://usefulinc.com/ns/doap#implements> <http://example.org/profile2> .
+<http://example.org/svc/id1> <http://www.w3.org/2003/12/exif/ns#width> "6000"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/svc/id1> <http://iiif.io/api/image/2#hasSize> _:N718d40377e35443e88b916b91ad31619 .
+_:N035b95473deb424d94752befb8f5e996 <http://www.w3.org/2003/12/exif/ns#height> "200"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/svc/id1> <http://usefulinc.com/ns/doap#implements> <http://iiif.io/api/image/2/level2.json> .
+```
+
+where we see two `iiif:hasSize` predicates with bnode objects, each with `exif:height` and `exif:width`. This illustrates the use of the default [meaning of a JSON-LD array to mean an unordered `@set`](https://www.w3.org/TR/json-ld/#sets-and-lists). This is the case for all arrays used in the Image API JSON-LD.
+
+With the library support provided by `rdflib` it is thus trivial to read `info.json` as RDF.
+
+---
+
+_| [Up](README.md) | [Next: Writing Image API Image Information from RDF](write_image_info.md) |_
