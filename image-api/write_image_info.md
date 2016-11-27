@@ -8,7 +8,7 @@ The `@context` doesn't support seamless creation of IIIF Image API `info.json` f
 
 It is merely convention, and not a requirement of the specification, that properties such as `sizes` and `tiles` typically appear in size order. Clients should not rely on this ordering.
 
-## A minimal `info.json`
+## Problem cases
 
 The first program:
 
@@ -32,12 +32,13 @@ produces an **invalid** Image Information (`info.json`):
 
 It is invalid because the `profile` should be a list, and not a single URI.
 
+If we then look at a second case, wgere there are two `profile` values:
 
 ``` sh
 image-api>python build_image_info_frame2.py 
 ```
 
-will produce output that when run repeatedly vaires the order of the two entries in `profile`:
+will produce output that does have `profile` correctly as an array, but when run repeatedly varies the order of the two entries in `profile`:
 
 ``` json
 ...
@@ -48,8 +49,17 @@ will produce output that when run repeatedly vaires the order of the two entries
 ...
 ```
 
+## Post-processing JSON-LD to comply with the specification
+
+The program [`build_image_info_frame3.py`](build_image_info_frame3.py) add extra code to change the JSON output so that:
+
+  1. The `profile` property is always an array
+  2. The first entry in the `profile` array is one that starts with `http://iiif.io/api/image/`
+
+We can see the `diff`:
+
 ``` shell
-image-api> diff build_image_info_frame2.py  build_image_info_frame3.py 
+image-api> diff build_image_info_frame2.py build_image_info_frame3.py 
 ```
 
 ``` python
@@ -91,3 +101,11 @@ will always produce the correct `profile` form, a list with the compliance level
   "width": "4000"
 }
 ```
+
+This is obviously rather ugly but is necessary to meet the current Image API specification.
+
+**FIXME:** We should be able to fix the array issue with appropriate framing, but that will never correct the ordering problem.
+
+---
+
+_| [Up](README.md) | [Next: IIIF Presentation API](../prezi-api/README.md)] |_
