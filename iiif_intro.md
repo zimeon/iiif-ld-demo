@@ -2,6 +2,8 @@
 
 **IIIF = International Image Interoperability Framework**
 
+> pronounced “Triple-Eye-Eff”
+
 > The IIIF defines simple APIs and data formats to give scholars uniform and rich access to image-based resources hosted around the world. The community aims to develop, cultivate and document shared technologies, including image servers and web clients that provide a world-class user experience in viewing, comparing, manipulating and annotating images.
 
   * Slides: **[Introduction to IIIF](http://www.slideshare.net/azaroth42/introduction-to-iiif)**
