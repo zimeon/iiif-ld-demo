@@ -16,7 +16,7 @@ prezi-api> python jabber1.py
 
 specifies the manifest type (`sc:Manifest`) and then uses the combination of [`@context`](http://iiif.io/api/presentation/2/context.json) and [`frame`](http://iiif.io/api/presentation/2/manifest_frame.json) to produce the following output:
 
-```
+``` json
 {
   "@context": "http://iiif.io/api/presentation/2/context.json",
   "@id": "http://localhost:8000/jabberwocky/manifest",
@@ -34,6 +34,60 @@ means that PyLD will use local cached copies of the context and manifest (in [`c
 
 ## Descriptive information
 
+It is important to note that the descriptive information included in the manifest is intended simply for display to the user, it is not a place for structured semantic bibliographic or other metadata (that can be linked to with `seeAlso`).
+
+In the [`second program`](jabber2.py) we add a `label`, a `description`, and a tagged `Author` field:
+
+``` shell
+prezi-api> python jabber2.py
+```
+
+but here the output is wrong, we have a single `sc:metadataLabels` object where we want to have a `metadata` property with a list of `label`/`value` pairs:
+
+``` json
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://localhost:8000/jabberwocky/manifest",
+  "@type": "sc:Manifest",
+  "description": "A bad edition of wonderful nonsense.",
+  "label": "Jabberwocky",
+  "sc:metadataLabels": {
+    "@id": "_:b0",
+    "label": "Author",
+    "value": "Lewis Carroll"
+  }
+}
+```
+
+The problem here is that the `sc:metadataLabels` RDF resource must be and [`RDF:List`](https://www.w3.org/TR/rdf-schema/#ch_list) of `label`/`value` pairs. We can fix this in a [third program](jabber3.py):
+
+``` shell
+prezi-api> python jabber3.py
+```
+
+which adds a second pair and produces the correct structure:
+
+``` json
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://localhost:8000/jabberwocky/manifest",
+  "@type": "sc:Manifest",
+  "description": "A bad edition of wonderful nonsense.",
+  "label": "Jabberwocky",
+  "metadata": [
+    {
+      "@id": "_:b1",
+      "label": "Author",
+      "value": "Lewis Carroll"
+    },
+    {
+      "@id": "_:b0",
+      "label": "Published",
+      "value": "1871"
+    }
+  ]
+}
+```
 
 ## Sequence
 
