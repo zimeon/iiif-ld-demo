@@ -1,0 +1,70 @@
+{
+  "@context": "http://iiif.io/api/image/2/context.json",
+  "@id": "http://localhost:8001/bcv",
+  "height": 4000,
+  "profile": [
+    "http://iiif.io/api/image/2/level0.json",
+    {
+      "formats": [
+        "jpg"
+      ],
+      "qualities": [
+        "default"
+      ]
+    }
+  ],
+  "protocol": "http://iiif.io/api/image",
+  "sizes": [
+    {
+      "height": 500,
+      "width": 375
+    },
+    {
+      "height": 250,
+      "width": 188
+    },
+    {
+      "height": 125,
+      "width": 94
+    },
+    {
+      "height": 63,
+      "width": 47
+    },
+    {
+      "height": 31,
+      "width": 23
+    },
+    {
+      "height": 16,
+      "width": 12
+    },
+    {
+      "height": 8,
+      "width": 6
+    },
+    {
+      "height": 4,
+      "width": 3
+    },
+    {
+      "height": 2,
+      "width": 1
+    },
+    {
+      "height": 1,
+      "width": 1
+    }
+  ],
+  "tiles": [
+    {
+      "scaleFactors": [
+        1,
+        2,
+        4
+      ],
+      "width": 512
+    }
+  ],
+  "width": 3000
+}
