@@ -85,7 +85,7 @@ g.add((c2, exif.height, Literal(3000, datatype=XSD.integer)))
 g.add((c2, exif.width, Literal(2000, datatype=XSD.integer)))
 (c2imgs, c2img2) = ListStart(g, c2, sc.hasImageAnnotations)
 g.add((c2img2, RDF.type, oa.Annotation))
-#g.add((c2img2, oa.motivatedBy, sc.painting))
+# g.add((c2img2, oa.motivatedBy, sc.painting))
 img2 = jw['image/fcv.jpg']
 g.add((c2img2, oa.hasBody, img2))
 g.add((img2, RDF.type, dctypes.Image))
