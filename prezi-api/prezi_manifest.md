@@ -175,7 +175,7 @@ prezi-api> python ../cors_server.py 8000
 Serving HTTP on 0.0.0.0 port 8000 ...
 ```
 
-You can check that the manifest is accessible by accessing <http://localhost:8000/manifest.json>.
+You can check that the manifest is accessible by accessing <http://localhost:8000/jabberwocky/manifest.json>.
 
 With these two servers running, you should be able to load the manifest into either UV or Mirador:
 

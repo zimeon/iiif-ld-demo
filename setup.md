@@ -19,7 +19,7 @@ Download a copy by cloning the git repository. The following should create a cop
 > git clone git@github.com:zimeon/iiif-ld-demo.git
 ```
 
-(If you want to fix bugs and send them back as pull requests, the best way to do that is to first fork the repository into your own github account and then close that.)
+(If you want to fix bugs and send them back as pull requests, the best way to do that is to first fork the repository into your own github account and then clone that.)
 
 ## 3. Change directory into the new copy
 
