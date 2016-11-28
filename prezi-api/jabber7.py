@@ -105,7 +105,7 @@ g.add((c1img, oa.hasTarget, c1))
 g.add((c2, RDFS.label, StrLiteral('c2')))
 g.add((c2, exif.height, Literal(4000, datatype=XSD.integer)))
 g.add((c2, exif.width, Literal(3000, datatype=XSD.integer)))
-g.add((c2, foaf.thumbnail, URIRef("http://localhost:8001/fvr/full/90,/0/default.jpg")))
+g.add((c2, foaf.thumbnail, URIRef("http://localhost:8001/fcv/full/90,/0/default.jpg")))
 (c2imgs, c2img) = ListStart(g, c2, sc.hasImageAnnotations)
 g.add((c2img, RDF.type, oa.Annotation))
 # g.add((c2img2, oa.motivatedBy, sc.painting)) ## FIXME - framing fail

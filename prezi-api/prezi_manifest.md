@@ -184,6 +184,13 @@ With these two servers running, you should be able to load the manifest into eit
 
 ## Adding the other pages
 
+The (klunky) code in <jabber7.py> repeats that page additions to include all pages of this dummy book. Running this script will update the `manifest.json` which can then be reloaded.
+
+Issues with this:
+
+  * Code is repeated, need clean functions for adding canvases/images.
+  * Framing does not work correctly for the repeated `oa:motivatedBy`/`motivation` and `doap:implements`/`profile` data. The first is not actually required by viewers so is omitted from all but the first canvas. The second is required and is added to the JSON after framing.
+  * The fourth canvas is a double page spread and needs a viewing hint to control display properly.
 
 ## Adding viewing hints to control display
 
