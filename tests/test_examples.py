@@ -50,13 +50,24 @@ def split_command_line(command_line):
     return(m.group(1), m.group(2))
 
 
+def zap_bnodes(str1):
+    """Make all bnodes simply _:_ in JSON string.
+
+    This is a nasty kludge but is likely not to match the
+    wrong thing. Should really do an isomorphism test like
+    we do for nt data.
+    """
+    str2 = re.sub(r'''("_:\w+")''', '"_:_"', str1)
+    return(str2)
+
+
 def compare_json(str1, str2):
     """Compare two JSON strings.
 
     Returns diff and changes required.
     """
-    json1 = json.loads(str1)
-    json2 = json.loads(str2)
+    json1 = json.loads(zap_bnodes(str1))
+    json2 = json.loads(zap_bnodes(str2))
     diff = json_delta.diff(json1, json2, minimal=True, verbose=False)
     if (len(diff) > 0):
         return(diff[0], diff[1])
