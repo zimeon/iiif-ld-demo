@@ -11,6 +11,7 @@ sc = Namespace("http://iiif.io/api/presentation/2#")
 oa = Namespace("http://www.w3.org/ns/oa#")
 jw = Namespace("http://localhost:8000/jabberwocky/")
 
+
 def StrLiteral(s):
     """String literal convenience method."""
     return Literal(s, datatype=XSD.string)
@@ -21,7 +22,7 @@ g.add((jw.manifest, RDF.type, sc.Manifest))
 # Simple descriptive information
 g.add((jw.manifest, RDFS.label, StrLiteral("Jabberwocky")))
 g.add((jw.manifest, DC.description,
-    StrLiteral("A bad edition of wonderful nonsense.")))
+       StrLiteral("A bad edition of wonderful nonsense.")))
 # List of label/value pairs
 metadata_labels1 = BNode()
 metadata_labels2 = BNode()
