@@ -16,4 +16,4 @@ doc = json.loads("""
 
 frame = json.loads("""{"http://example.org/p1": {}}""")
 framed = jsonld.frame(doc, frame)
-print(json.dumps(framed, indent=2))
+print(json.dumps(framed, indent=2, sort_keys=True))

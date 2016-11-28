@@ -17,4 +17,4 @@ doc = json.loads("""
 
 frame = json.loads("""{"%s": {}}""" % (sys.argv[1]))
 framed = jsonld.compact(jsonld.frame(doc, frame), {})
-print(json.dumps(framed, indent=2))
+print(json.dumps(framed, indent=2, sort_keys=True))
