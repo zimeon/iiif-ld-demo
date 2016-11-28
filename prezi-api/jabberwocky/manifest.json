@@ -6,19 +6,19 @@
   "label": "Jabberwocky",
   "metadata": [
     {
-      "@id": "_:b4",
+      "@id": "_:b1",
       "label": "Author",
       "value": "Lewis Carroll"
     },
     {
-      "@id": "_:b3",
+      "@id": "_:b2",
       "label": "Published",
       "value": "1871"
     }
   ],
   "sequences": [
     {
-      "@id": "_:b6",
+      "@id": "_:b7",
       "@type": "sc:Sequence",
       "canvases": [
         {
@@ -27,7 +27,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b5",
+              "@id": "_:b6",
               "@type": "oa:Annotation",
               "motivation": "sc:painting",
               "on": "http://localhost:8000/jabberwocky/canvas/1",
@@ -51,7 +51,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b10",
+              "@id": "_:b3",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/2",
               "resource": {
@@ -65,7 +65,7 @@
             }
           ],
           "label": "c2",
-          "thumbnail": "http://localhost:8001/fvr/full/90,/0/default.jpg",
+          "thumbnail": "http://localhost:8001/fcv/full/90,/0/default.jpg",
           "width": "3000"
         },
         {
@@ -74,7 +74,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b11",
+              "@id": "_:b0",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/3",
               "resource": {
@@ -97,7 +97,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b9",
+              "@id": "_:b11",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/4",
               "resource": {
@@ -120,7 +120,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b2",
+              "@id": "_:b4",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/5",
               "resource": {
@@ -143,7 +143,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b0",
+              "@id": "_:b9",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/6",
               "resource": {
@@ -166,7 +166,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b7",
+              "@id": "_:b8",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/7",
               "resource": {
@@ -189,7 +189,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b8",
+              "@id": "_:b5",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/8",
               "resource": {
@@ -212,7 +212,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b1",
+              "@id": "_:b10",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/9",
               "resource": {
