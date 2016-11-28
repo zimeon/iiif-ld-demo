@@ -3,7 +3,7 @@
 Unfortunately these two libraries use different in-memory data structures
 so it is not trivial to use the power RDF support of rdflib in conjuction
 with the JSON-LD processor implementation of PyLD. This code is designed
-to provide a bridge from rdflib->PyLD formats without the need to
+to provide a bridge from rdflib to PyLD formats without the need to
 serialize and then re-parse the data.
 
 rdflib: see <http://rdflib.readthedocs.io/en/stable/apidocs/>
@@ -24,11 +24,11 @@ def rdflib_term_to_pyld_term(term):
     See:
     <http://rdflib.readthedocs.io/en/stable/apidocs/rdflib.html#module-rdflib.term>
     and
-    <https://github.com/digitalbazaar/pyld/blob/master/lib/pyld/jsonld.py#L1645>a
+    <https://github.com/digitalbazaar/pyld/blob/master/lib/pyld/jsonld.py#L1645>
 
     Return value is a PyLD term which is represented as a hash where:
       `type` in {'IRI', 'blank node', 'literal'}
-      `value` is string of IRI, BNoode or literal
+      `value` is string of IRI, BNode or literal
       `language` optional language code for literal (if present `datatype` will
           default to RDF.langString)
       `datatype` optional data type URI for literal, else None
