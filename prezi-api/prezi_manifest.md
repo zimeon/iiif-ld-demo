@@ -138,10 +138,61 @@ produces:
 }
 ```
 
-To load with test server running on <http://localhost:8000/>:
+## Images
+
+Additions in <jabber6.py> paint an image with a IIIF Image API service onto each of the two canvases for the front and back of the cover page. Since the manifest is getting rather long and we want to server it with CORS headers, it is now written to `jabberwocky/manifest.json`:
+
+``` bash
+prezi-api> python jabber6.py 
+prezi-api> head jabberwocky/manifest.json
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://localhost:8000/jabberwocky/manifest.json",
+  "@type": "sc:Manifest",
+  "description": "A bad edition of wonderful nonsense.",
+  "label": "Jabberwocky",
+  "metadata": [
+    {
+      "@id": "_:b2",
+      "label": "Author",
+```
+
+## Viewing the first page
+
+To set up a server for the static image tiles, run from the `images` directory:
+
+``` bash
+images> python ../cors_server.py 8001
+Serving HTTP on 0.0.0.0 port 8001 ...
+```
+
+This also sets up HTML pages with plan OpenSeadragon for each image so you can test with, for example, <http://localhost:8001/fcr.html>.
+
+To set up the manifest server, run in another window from the `prezi_api` directory:
+
+``` bash
+prezi-api> python ../cors_server.py 8000
+Serving HTTP on 0.0.0.0 port 8000 ...
+```
+
+You can check that the manifest is accessible by accessing <http://localhost:8000/manifest.json>.
+
+With these two servers running, you should be able to load the manifest into either UV or Mirador:
 
   * [UV](http://universalviewer.io/?manifest=http%3A%2F%2Flocalhost%3A8000%2Fjabberwocky%2Fmanifest.json)
   * [Mirador](http://projectmirador.org/demo/) then "Replace Object" and enter `http://localhost:8000/jabberwocky/manifest.json` into Load box.
+
+## Adding the other pages
+
+
+## Adding viewing hints to control display
+
+FIXME -- handle two page spread
+
+### Notes on viewers vs specification
+
+  * The static tiles generated include extra `/full/90,/` tiles that UV expects for thumbnails. UV should really use only sizes specified in the `sizes` array for a `level0` implementation.
+  * Mirador will not work unless there is a `thumbnail` specified for each canvas, this should not be a requirement.
 
 ---
 

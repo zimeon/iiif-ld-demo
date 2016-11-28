@@ -79,8 +79,8 @@ g.add((c1, foaf.thumbnail, jw['image/fcr_thumb.jpg']))
 (c1imgs, c1img1) = ListStart(g, c1, sc.hasImageAnnotations)
 g.add((c1img1, RDF.type, oa.Annotation))
 g.add((c1img1, oa.motivatedBy, sc.painting))
-img1svc = URIRef("http://localhost:8001/2.1_pil/fcr")
-img1full = URIRef("http://localhost:8001/2.1_pil/fcr/full/full/0/default.jpg")
+img1svc = URIRef("http://localhost:8001/fcr")
+img1full = URIRef("http://localhost:8001/fcr/full/full/0/default.jpg")
 g.add((c1img1, oa.hasBody, img1full))
 g.add((img1full, RDF.type, dctypes.Image))
 g.add((img1full, svcs.has_service, img1svc))
@@ -94,14 +94,15 @@ g.add((c2, exif.width, Literal(3000, datatype=XSD.integer)))
 g.add((c2, foaf.thumbnail, jw['image/fcv_thumb.jpg']))
 (c2imgs, c2img2) = ListStart(g, c2, sc.hasImageAnnotations)
 g.add((c2img2, RDF.type, oa.Annotation))
-# g.add((c2img2, oa.motivatedBy, sc.painting))
-img2svc = URIRef("http://localhost:8001/2.1_pil/fcv")
-img2full = URIRef("http://localhost:8001/2.1_pil/fcv/full/full/0/default.jpg")
+# g.add((c2img2, oa.motivatedBy, sc.painting)) ## FIXME - framing fail
+img2svc = URIRef("http://localhost:8001/fcv")
+img2full = URIRef("http://localhost:8001/fcv/full/full/0/default.jpg")
 g.add((c2img2, oa.hasBody, img2full))
 g.add((img2full, RDF.type, dctypes.Image))
 g.add((img2full, svcs.has_service, img2svc))
+# FIXME - framing failure, see hack later to replace
 g.add((img2svc, doap.implements,
-       URIRef("http://iiif.io/api/image/2/profiles/level1.json")))
+       URIRef("http://iiif.io/api/image/2/profiles/level0.json#a")))
 g.add((c2img2, oa.hasTarget, c2))
 
 # Get JSON-LD object in PyLD form
@@ -111,5 +112,7 @@ jld = pyld_json_from_rdflib_graph(g)
 framed = jsonld.compact(
     jsonld.frame(jld, "http://iiif.io/api/presentation/2/manifest_frame.json"),
     "http://iiif.io/api/presentation/2/context.json")
+# FIXME - hack to get around framing problems
+framed['sequences'][0]['canvases'][1]['images'][0]['resource']['service']['profile'] = "http://iiif.io/api/image/2/profiles/level0.json"
 with open('jabberwocky/manifest.json', 'w') as fh:
     json.dump(framed, fh, indent=2, sort_keys=True)

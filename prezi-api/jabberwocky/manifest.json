@@ -6,12 +6,12 @@
   "label": "Jabberwocky",
   "metadata": [
     {
-      "@id": "_:b3",
+      "@id": "_:b2",
       "label": "Author",
       "value": "Lewis Carroll"
     },
     {
-      "@id": "_:b0",
+      "@id": "_:b1",
       "label": "Published",
       "value": "1871"
     }
@@ -27,15 +27,15 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b2",
+              "@id": "_:b3",
               "@type": "oa:Annotation",
               "motivation": "sc:painting",
               "on": "http://localhost:8000/jabberwocky/canvas/1",
               "resource": {
-                "@id": "http://localhost:8001/2.1_pil/fcr/full/full/0/default.jpg",
+                "@id": "http://localhost:8001/fcr/full/full/0/default.jpg",
                 "@type": "dctypes:Image",
                 "service": {
-                  "@id": "http://localhost:8001/2.1_pil/fcr",
+                  "@id": "http://localhost:8001/fcr",
                   "profile": "http://iiif.io/api/image/2/profiles/level0.json"
                 }
               }
@@ -51,15 +51,15 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b1",
+              "@id": "_:b0",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/2",
               "resource": {
-                "@id": "http://localhost:8001/2.1_pil/fcv/full/full/0/default.jpg",
+                "@id": "http://localhost:8001/fcv/full/full/0/default.jpg",
                 "@type": "dctypes:Image",
                 "service": {
-                  "@id": "http://localhost:8001/2.1_pil/fcv",
-                  "profile": "http://iiif.io/api/image/2/profiles/level1.json"
+                  "@id": "http://localhost:8001/fcv",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
                 }
               }
             }
