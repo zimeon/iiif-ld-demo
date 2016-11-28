@@ -6,19 +6,19 @@
   "label": "Jabberwocky",
   "metadata": [
     {
-      "@id": "_:b2",
+      "@id": "_:b4",
       "label": "Author",
       "value": "Lewis Carroll"
     },
     {
-      "@id": "_:b1",
+      "@id": "_:b3",
       "label": "Published",
       "value": "1871"
     }
   ],
   "sequences": [
     {
-      "@id": "_:b4",
+      "@id": "_:b6",
       "@type": "sc:Sequence",
       "canvases": [
         {
@@ -27,7 +27,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b3",
+              "@id": "_:b5",
               "@type": "oa:Annotation",
               "motivation": "sc:painting",
               "on": "http://localhost:8000/jabberwocky/canvas/1",
@@ -42,7 +42,7 @@
             }
           ],
           "label": "c1",
-          "thumbnail": "http://localhost:8000/jabberwocky/image/fcr_thumb.jpg",
+          "thumbnail": "http://localhost:8001/fcr/full/90,/0/default.jpg",
           "width": "3000"
         },
         {
@@ -51,7 +51,7 @@
           "height": "4000",
           "images": [
             {
-              "@id": "_:b0",
+              "@id": "_:b10",
               "@type": "oa:Annotation",
               "on": "http://localhost:8000/jabberwocky/canvas/2",
               "resource": {
@@ -65,7 +65,168 @@
             }
           ],
           "label": "c2",
-          "thumbnail": "http://localhost:8000/jabberwocky/image/fcv_thumb.jpg",
+          "thumbnail": "http://localhost:8001/fvr/full/90,/0/default.jpg",
+          "width": "3000"
+        },
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/3",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b11",
+              "@type": "oa:Annotation",
+              "on": "http://localhost:8000/jabberwocky/canvas/3",
+              "resource": {
+                "@id": "http://localhost:8001/1r/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/1r",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
+                }
+              }
+            }
+          ],
+          "label": "c3",
+          "thumbnail": "http://localhost:8001/1r/full/90,/0/default.jpg",
+          "width": "3000"
+        },
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/4",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b9",
+              "@type": "oa:Annotation",
+              "on": "http://localhost:8000/jabberwocky/canvas/4",
+              "resource": {
+                "@id": "http://localhost:8001/1v2r/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/1v2r",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
+                }
+              }
+            }
+          ],
+          "label": "c4",
+          "thumbnail": "http://localhost:8001/1v2r/full/90,/0/default.jpg",
+          "width": "3000"
+        },
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/5",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b2",
+              "@type": "oa:Annotation",
+              "on": "http://localhost:8000/jabberwocky/canvas/5",
+              "resource": {
+                "@id": "http://localhost:8001/2v/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/2v",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
+                }
+              }
+            }
+          ],
+          "label": "c5",
+          "thumbnail": "http://localhost:8001/2v/full/90,/0/default.jpg",
+          "width": "3000"
+        },
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/6",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b0",
+              "@type": "oa:Annotation",
+              "on": "http://localhost:8000/jabberwocky/canvas/6",
+              "resource": {
+                "@id": "http://localhost:8001/3r/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/3r",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
+                }
+              }
+            }
+          ],
+          "label": "c6",
+          "thumbnail": "http://localhost:8001/3r/full/90,/0/default.jpg",
+          "width": "3000"
+        },
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/7",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b7",
+              "@type": "oa:Annotation",
+              "on": "http://localhost:8000/jabberwocky/canvas/7",
+              "resource": {
+                "@id": "http://localhost:8001/3v/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/3v",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
+                }
+              }
+            }
+          ],
+          "label": "c7",
+          "thumbnail": "http://localhost:8001/3v/full/90,/0/default.jpg",
+          "width": "3000"
+        },
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/8",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b8",
+              "@type": "oa:Annotation",
+              "on": "http://localhost:8000/jabberwocky/canvas/8",
+              "resource": {
+                "@id": "http://localhost:8001/bcr/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/bcr",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
+                }
+              }
+            }
+          ],
+          "label": "c8",
+          "thumbnail": "http://localhost:8001/bcr/full/90,/0/default.jpg",
+          "width": "3000"
+        },
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/9",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b1",
+              "@type": "oa:Annotation",
+              "on": "http://localhost:8000/jabberwocky/canvas/9",
+              "resource": {
+                "@id": "http://localhost:8001/bcv/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/bcv",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
+                }
+              }
+            }
+          ],
+          "label": "c9",
+          "thumbnail": "http://localhost:8001/bcv/full/90,/0/default.jpg",
           "width": "3000"
         }
       ],
