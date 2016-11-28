@@ -1,5 +1,5 @@
-"""Step 5 preparing Jabberwocky manifest."""
-from rdflib import Graph, BNode, Literal
+"""Step 6 preparing Jabberwocky manifest."""
+from rdflib import Graph, BNode, Literal, URIRef
 from rdflib.namespace import Namespace, RDF, RDFS, DC, XSD
 from rdflib_pyld_compat import pyld_json_from_rdflib_graph
 from pyld import jsonld
@@ -12,6 +12,8 @@ oa = Namespace("http://www.w3.org/ns/oa#")
 exif = Namespace("http://www.w3.org/2003/12/exif/ns#")
 dctypes = Namespace("http://purl.org/dc/dcmitype/")
 foaf = Namespace("http://xmlns.com/foaf/0.1/")
+svcs = Namespace("http://rdfs.org/sioc/services#")
+doap = Namespace("http://usefulinc.com/ns/doap#")
 jw = Namespace("http://localhost:8000/jabberwocky/")
 
 
@@ -77,9 +79,13 @@ g.add((c1, foaf.thumbnail, jw['image/fcr_thumb.jpg']))
 (c1imgs, c1img1) = ListStart(g, c1, sc.hasImageAnnotations)
 g.add((c1img1, RDF.type, oa.Annotation))
 g.add((c1img1, oa.motivatedBy, sc.painting))
-img1 = jw['image/fcr.jpg']
-g.add((c1img1, oa.hasBody, img1))
-g.add((img1, RDF.type, dctypes.Image))
+img1svc = URIRef("http://localhost:8001/2.1_pil/fcr")
+img1full = URIRef("http://localhost:8001/2.1_pil/fcr/full/full/0/default.jpg")
+g.add((c1img1, oa.hasBody, img1full))
+g.add((img1full, RDF.type, dctypes.Image))
+g.add((img1full, svcs.has_service, img1svc))
+g.add((img1svc, doap.implements,
+       URIRef("http://iiif.io/api/image/2/profiles/level0.json")))
 g.add((c1img1, oa.hasTarget, c1))
 
 g.add((c2, RDFS.label, StrLiteral('c2')))
@@ -89,9 +95,13 @@ g.add((c2, foaf.thumbnail, jw['image/fcv_thumb.jpg']))
 (c2imgs, c2img2) = ListStart(g, c2, sc.hasImageAnnotations)
 g.add((c2img2, RDF.type, oa.Annotation))
 # g.add((c2img2, oa.motivatedBy, sc.painting))
-img2 = jw['image/fcv.jpg']
-g.add((c2img2, oa.hasBody, img2))
-g.add((img2, RDF.type, dctypes.Image))
+img2svc = URIRef("http://localhost:8001/2.1_pil/fcv")
+img2full = URIRef("http://localhost:8001/2.1_pil/fcv/full/full/0/default.jpg")
+g.add((c2img2, oa.hasBody, img2full))
+g.add((img2full, RDF.type, dctypes.Image))
+g.add((img2full, svcs.has_service, img2svc))
+g.add((img2svc, doap.implements,
+       URIRef("http://iiif.io/api/image/2/profiles/level1.json")))
 g.add((c2img2, oa.hasTarget, c2))
 
 # Get JSON-LD object in PyLD form

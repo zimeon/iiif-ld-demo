@@ -1,0 +1,75 @@
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://localhost:8000/jabberwocky/manifest.json",
+  "@type": "sc:Manifest",
+  "description": "A bad edition of wonderful nonsense.",
+  "label": "Jabberwocky",
+  "metadata": [
+    {
+      "@id": "_:b3",
+      "label": "Author",
+      "value": "Lewis Carroll"
+    },
+    {
+      "@id": "_:b0",
+      "label": "Published",
+      "value": "1871"
+    }
+  ],
+  "sequences": [
+    {
+      "@id": "_:b4",
+      "@type": "sc:Sequence",
+      "canvases": [
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/1",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b2",
+              "@type": "oa:Annotation",
+              "motivation": "sc:painting",
+              "on": "http://localhost:8000/jabberwocky/canvas/1",
+              "resource": {
+                "@id": "http://localhost:8001/2.1_pil/fcr/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/2.1_pil/fcr",
+                  "profile": "http://iiif.io/api/image/2/profiles/level0.json"
+                }
+              }
+            }
+          ],
+          "label": "c1",
+          "thumbnail": "http://localhost:8000/jabberwocky/image/fcr_thumb.jpg",
+          "width": "3000"
+        },
+        {
+          "@id": "http://localhost:8000/jabberwocky/canvas/2",
+          "@type": "sc:Canvas",
+          "height": "4000",
+          "images": [
+            {
+              "@id": "_:b1",
+              "@type": "oa:Annotation",
+              "on": "http://localhost:8000/jabberwocky/canvas/2",
+              "resource": {
+                "@id": "http://localhost:8001/2.1_pil/fcv/full/full/0/default.jpg",
+                "@type": "dctypes:Image",
+                "service": {
+                  "@id": "http://localhost:8001/2.1_pil/fcv",
+                  "profile": "http://iiif.io/api/image/2/profiles/level1.json"
+                }
+              }
+            }
+          ],
+          "label": "c2",
+          "thumbnail": "http://localhost:8000/jabberwocky/image/fcv_thumb.jpg",
+          "width": "3000"
+        }
+      ],
+      "label": "Normal Page Order"
+    }
+  ]
+}

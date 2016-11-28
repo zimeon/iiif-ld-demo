@@ -138,6 +138,11 @@ produces:
 }
 ```
 
+To load with test server running on <http://localhost:8000/>:
+
+  * [UV](http://universalviewer.io/?manifest=http%3A%2F%2Flocalhost%3A8000%2Fjabberwocky%2Fmanifest.json)
+  * [Mirador](http://projectmirador.org/demo/) then "Replace Object" and enter `http://localhost:8000/jabberwocky/manifest.json` into Load box.
+
 ---
 
 _| [Up](README.md) |_
