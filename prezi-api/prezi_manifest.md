@@ -89,6 +89,55 @@ which adds a second pair and produces the correct structure:
 }
 ```
 
-## Sequence
+## Sequence and canvases
 
-At least one sequence must be included in a manifest and it represents the order of the parts of the work, each represented by a Canvas.
+At least one sequence must be included in a manifest and it represents the order of the parts of the work, each represented by a canvas. As a first stab we add a single sequence and then two canveses (with no content). The functions `ListStart` and `ListAdd` are defined to make list creation a little simpler.
+
+``` shell
+prezi-api> python jabber4.py
+```
+
+produces:
+
+``` json
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "http://localhost:8000/jabberwocky/manifest",
+  "@type": "sc:Manifest",
+  "description": "A bad edition of wonderful nonsense.",
+  "label": "Jabberwocky",
+  "metadata": [
+    {
+      "@id": "_:b4",
+      "label": "Author",
+      "value": "Lewis Carroll"
+    },
+    {
+      "@id": "_:b1",
+      "label": "Published",
+      "value": "1871"
+    }
+  ],
+  "sequences": [
+    {
+      "@id": "_:b2",
+      "@type": "sc:Sequence",
+      "canvases": [
+        {
+          "@id": "_:b3",
+          "@type": "sc:Canvas"
+        },
+        {
+          "@id": "_:b0",
+          "@type": "sc:Canvas"
+        }
+      ],
+      "label": "Normal Page Order"
+    }
+  ]
+}
+```
+
+---
+
+_| [Up](README.md) |_
