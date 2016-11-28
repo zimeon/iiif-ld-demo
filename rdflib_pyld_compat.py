@@ -37,6 +37,7 @@ def rdflib_term_to_pyld_term(term):
          'value': str(term)}
     if (isinstance(term, BNode)):
         t['type'] = 'blank node'
+        t['value'] = '_:' + t['value']
     elif (isinstance(term, Literal)):
         t['type'] = 'literal'
         if (term.language):
