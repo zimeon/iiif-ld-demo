@@ -35,14 +35,14 @@ produces:
 }
 ```
 
-See the  [`select_anno.py`](select_anno.py) code to see use of `pyld_json_from_rdflib_graph(...)` to get PyLD data from an `rdflib` graph:
+See the  [`select_anno.py`](select_anno.py) code to see use of `pyld_jsonld_from_rdflib_graph(...)` to get PyLD data from an `rdflib` graph:
 
 ``` python
-from rdflib_pyld_compat import pyld_json_from_rdflib_graph
+from rdflib_pyld_compat import pyld_jsonld_from_rdflib_graph
 ...
 
 # Get JSON-LD object in PyLD form
-jld = pyld_json_from_rdflib_graph(g2)
+jld = pyld_jsonld_from_rdflib_graph(g2)
 ```
 
 ---

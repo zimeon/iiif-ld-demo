@@ -65,7 +65,7 @@ def pyld_graph_from_rdflib_graph(graph):
     return g
 
 
-def pyld_json_from_rdflib_graph(graph):
+def pyld_jsonld_from_rdflib_graph(graph):
     """Get PyLD JSON object from and rdflib input graph."""
     default_graph = pyld_graph_from_rdflib_graph(graph)
     return jsonld.from_rdf({'@default': default_graph})

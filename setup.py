@@ -14,7 +14,8 @@ setup(
         'rdflib>=4.2.0',
         'rdflib-jsonld',
         'pyld',
-        'json_delta'
+        'json_delta',
+        'rdflib-pyld-compat'
     ],
     test_suite="tests",
     tests_require=[

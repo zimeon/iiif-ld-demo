@@ -3,7 +3,7 @@ from rdflib import Graph, URIRef, Literal, BNode, plugin
 from rdflib.namespace import Namespace, XSD
 from rdflib_jsonld.serializer import from_rdf
 
-from rdflib_pyld_compat import pyld_json_from_rdflib_graph
+from rdflib_pyld_compat import pyld_jsonld_from_rdflib_graph
 
 import json
 from pyld import jsonld
@@ -33,7 +33,7 @@ g.add((id, exif.height, Literal(3000, datatype=XSD.integer)))
 g.add((id, doap.implements, URIRef("http://example.org/profileA")))
 g.add((id, doap.implements, URIRef("http://iiif.io/api/image/2/level0.json")))
 
-info = pyld_json_from_rdflib_graph(g)
+info = pyld_jsonld_from_rdflib_graph(g)
 framed = jsonld.compact(
     jsonld.frame(info, "http://iiif.io/api/image/2/info_frame.json"),
     "http://iiif.io/api/image/2/context.json")

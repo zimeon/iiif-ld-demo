@@ -1,7 +1,7 @@
 """Example of preparation with rdflib, JSON-LD manip with PyLD."""
 from rdflib import Graph, URIRef
 from rdflib.namespace import Namespace, RDF
-from rdflib_pyld_compat import pyld_json_from_rdflib_graph
+from rdflib_pyld_compat import pyld_jsonld_from_rdflib_graph
 from pyld import jsonld
 import json
 import sys
@@ -32,7 +32,7 @@ for target in sys.argv[1:]:
         g2 += g1.triples((anno, None, None))
 
 # Get JSON-LD object in PyLD form
-jld = pyld_json_from_rdflib_graph(g2)
+jld = pyld_jsonld_from_rdflib_graph(g2)
 
 # Apply context in PyLD
 context = {"@context": [{

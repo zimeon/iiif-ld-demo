@@ -1,7 +1,7 @@
 """Step 1 preparing Jabberwocky manifest."""
 from rdflib import Graph, BNode, Literal
 from rdflib.namespace import Namespace, RDF, RDFS, DC, XSD
-from rdflib_pyld_compat import pyld_json_from_rdflib_graph
+from rdflib_pyld_compat import pyld_jsonld_from_rdflib_graph
 from pyld import jsonld
 import context_cache.for_pyld
 import json
@@ -30,7 +30,7 @@ g.add((author, RDFS.label, StrLiteral("Author")))
 g.add((author, RDF.value, StrLiteral("Lewis Carroll")))
 
 # Get JSON-LD object in PyLD form
-jld = pyld_json_from_rdflib_graph(g)
+jld = pyld_jsonld_from_rdflib_graph(g)
 
 # Frame and compact...
 framed = jsonld.compact(
