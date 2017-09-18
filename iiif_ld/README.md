@@ -187,7 +187,7 @@ Further reading on JSON-LD:
 
 **Minor change coming** -- There is an emerging best practice to use `id` and `type` in JSON-LD documents instead of `@id` and `@type` (via redefinition in the `@context`). This has already been done or agreed for other specifications (including [Web Annotation](https://www.w3.org/TR/annotation-model/#annotations)). The IIIF specifications currently use `@id` and `@type` but [will change](https://github.com/IIIF/iiif.io/issues/590), likely with version 3.0 of the Image and Presentation APIs.
 
-The key reason for aviodance of `@` symbols is that is make the resulting JSON easier to work with in many programming libraries. For example if the JSON-LD data is `{ "@id": "http://zimeon.com/me", "name": "Simeon" }` the one could write in JavaScript or Python  `data.name` to access the name, but would have to use `data['@id']` to access the identifier because the `@` is not allowed in object notation. This problem goes away if the `@` signs is dropped.
+The key reason for avoidance of `@` symbols is that is make the resulting JSON easier to work with in many programming libraries. For example if the JSON-LD data is `{ "@id": "http://zimeon.com/me", "name": "Simeon" }` the one could write in JavaScript or Python  `data.name` to access the name, but would have to use `data['@id']` to access the identifier because the `@` is not allowed in object notation. This problem goes away if the `@` sign is dropped.
 
 ## Why RDF if developers don't know/use it?
 
