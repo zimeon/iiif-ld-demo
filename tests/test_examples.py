@@ -20,6 +20,13 @@ except:
 import sys
 
 
+
+class TestFail(Exception):
+    """Exception indicating test failure."""
+
+    pass
+
+
 class CodeExtracter(misaka.HtmlRenderer):
     """Rendered class for Mikasa that extracts code blocks."""
 
@@ -69,8 +76,10 @@ def compare_json(str1, str2):
     json1 = json.loads(zap_bnodes(str1))
     json2 = json.loads(zap_bnodes(str2))
     diff = json_delta.diff(json1, json2, minimal=True, verbose=False)
-    if (len(diff) > 0):
+    if (len(diff) > 1):
         return(diff[0], diff[1])
+    elif (len(diff) > 0):
+        return(diff[0], '(no changes returned)')
     else:
         return('', '')
 
@@ -92,6 +101,36 @@ def compare_text(str1, str2, squash_space=True):
            for l in ndiff(str1.splitlines(1), str2.splitlines(1))))
 
 
+def run_test(n, command_line, text, lang):
+    """Run one test and compare output with text."""
+    # Expect match from command in previous shell block
+    (directory, command) = split_command_line(command_line)
+    cmd = "cd %s && %s" % (directory, command)
+    print("[%s %d] cmd: %s" % (filename, n, cmd))
+    try:
+        out = getoutput(cmd)
+        if (lang == 'json'):
+            (diff, changes) = compare_json(text, out)
+            if (diff):
+                raise Exception("JSON output doesn't match:\n differences in %s\n changes to match %s" % (diff, changes))
+        elif (lang == 'nt'):
+            g1 = rdflib.Graph()
+            g1.parse(data=text, format="nt")
+            g2 = rdflib.Graph()
+            g2.parse(data=out, format="nt")
+            iso1 = rdflib.compare.to_isomorphic(g1)
+            iso2 = rdflib.compare.to_isomorphic(g2)
+            if (iso1 != iso2):
+                raise Exception("nt data doesn't match")
+        else:
+            diff = compare_text(text, out)
+            if (diff):
+                raise Exception("Output strings don't match (lang='%s'):\n%s" % (lang, diff))
+    except Exception as e:
+        # Add identifying info and reraise
+        raise TestFail("[%s %d] %s" % (filename, n, str(e)))
+
+
 def check_markdown_file(filename):
     """Check markdown file for codeblock shell+output pairs."""
     codeblocks = extract_codeblocks(filename)
@@ -109,28 +148,7 @@ def check_markdown_file(filename):
             command_line = None
         elif (command_line is not None):
             n += 1
-            # Expect match from command in previous shell block
-            (directory, command) = split_command_line(command_line)
-            cmd = "cd %s && %s" % (directory, command)
-            print("[%s %d] cmd: %s" % (filename, n, cmd))
-            out = getoutput(cmd)
-            if (lang == 'json'):
-                (diff, changes) = compare_json(text, out)
-                if (diff):
-                    raise Exception("JSON output doesn't match:\n differences in %s\n changes to match %s" % (diff, changes))
-            elif (lang == 'nt'):
-                g1 = rdflib.Graph()
-                g1.parse(data=text, format="nt")
-                g2 = rdflib.Graph()
-                g2.parse(data=out, format="nt")
-                iso1 = rdflib.compare.to_isomorphic(g1)
-                iso2 = rdflib.compare.to_isomorphic(g2)
-                if (iso1 != iso2):
-                    raise Exception("nt data doesn't match")
-            else:
-                diff = compare_text(text, out)
-                if (diff):
-                    raise Exception("Output strings don't match:\n" + diff)
+            run_test(n, command_line, text, lang)
             command_line = None
     if (command_line is not None):
         raise Exception("Trailing command (%s) with no expected output to check" % (command))
@@ -146,6 +164,9 @@ for filename in glob.glob("*/*.md"):
     print("[%s] ..." % (filename))
     try:
         commands += check_markdown_file(filename)
+    except TestFail as e:
+        bad_files += 1
+        print(str(e))
     except Exception as e:
         bad_files += 1
         print("[%s] Tests failed: %s" % (filename, str(e)))
